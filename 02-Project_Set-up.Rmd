@@ -1,0 +1,6 @@
+# Project Set-up
+
+R Projects
+Directory structures
+Code script structures
+Code script styles
