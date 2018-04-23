@@ -1,6 +1,51 @@
 # Project Set-up
 
-R Projects
+<hr class="double">
+
+## Introduction
+
+Before we jump in to teaching how to code in `R` we're going to establish some programming *best practices*. These will not only make your programming experience proceed more smoothly, but most importantly you will thank yourself in six months for adopting them now when you have to revisit an older script and have to figure out *what* you did, *how* you did it, and *why* you did it that way. 
+
+<hr class="small">
+
+## Directory structures
+
+It is best to keep all files associated with a given project (like a PhD chapter) located in a single root folder. This has multiple benefits including:
+
++  Easy communication with collaborators (particularly in a version controlled environment)
++  A clear, easily navigatable directory structure makes finding specific files easier
++  You don't accidently lose an important file for your analysis because you kept it somewhere else
+
+That said, there is no single best way to organise a file system. The key is to make sure that your chosen directory structure and the location of the files therein is consistent, informative, and, most importantly, works for you.
+
+An example directory structure (for a `MyProject` root directory) might include the following:
+
++  A `data` folder that contains all input data (and associated metadata) for the analysis. This is then potentially split further into:
+  +  A `raw` folder for your raw data files. These should never be modified so it is best to keep them separate.
+  +  A `clean` folder for your cleaned up versions of your raw data files.
++  A `doc`  or `reports` folder for any manuscripts. This can include the manuscript submitted to a journal for publication, reports for a funding body like a government or NGO, or some markdown files documenting the steps of the analysis. You may wish to sub-divide this folder to include these different types or, alternatively, include both a `docs` and `reports` folder
++  A `figs` or `images` folder for any graphs and figures generated in the analysis
++  An `output` folder to store any type of intermediate or output files. This could include model objects, simulations, etc. Some people prefer to store their cleaned data here instead of in a sub-directory of `data`
++ A `scripts` folder to store the code scripts used in the analysis
+
+```{r}
+###################
+### Challenge 1 ###
+###################
+
+# Build your own project directory structure for this workshop. For our purposes today you will require at least a `data`, `scripts`, and `images` folder
+```
+
+ 
+
+
+
+## R Projects
+
+
+
+
+
 Directory structures
 Code script structures
 Code script styles
