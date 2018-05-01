@@ -10,7 +10,7 @@ Before we jump in to teaching how to code in `R` we're going to establish some p
 
 ## Directory structures
 
-It is best to keep all files associated with a given project (like a PhD chapter) located in a single root folder. This has multiple benefits including:
+It is best to keep all files associated with a given project (like a PhD chapter) located in a single root folder. This is commonly called a "one folder, one project" mentality, and has multiple benefits including:
 
 +  Easy communication with collaborators (particularly in a version controlled environment)
 +  A clear, easily navigatable directory structure makes finding specific files easier
@@ -28,24 +28,67 @@ An example directory structure (for a `MyProject` root directory) might include 
 +  An `output` folder to store any type of intermediate or output files. This could include model objects, simulations, etc. Some people prefer to store their cleaned data here instead of in a sub-directory of `data`
 + A `scripts` folder to store the code scripts used in the analysis
 
-```{r}
+```{r eval=FALSE}
 ###################
 ### Challenge 1 ###
 ###################
 
-# Build your own project directory structure for this workshop. For our purposes today you will require at least a `data`, `scripts`, and `images` folder
+#Build your own project directory structure for this workshop. For our purposes today you will require at least a `data`, `scripts`, and `images` folder
 ```
 
- 
-
-
+<hr class="small">
 
 ## R Projects
 
+R builds on the "one folder, one project" mentality with the creation of `R Projects`. An `R Project` serves as a self-contained environment for your entire analysis. Amongst other things, the benefits of an `R Project` are:
 
++  Relative file paths. The path to a file now only needs to be specified relative to the `R project` root directory. No more file paths going off the screen!
++  Maintain your environment between sessions. Normally, unless explicitly saved to file and re-loaded, your environment is lost between sessions. This means re-running your code again and again, which is unfeasible for larger analysis that may take hours or days to run. An `R project` will automatically save and re-load your environment.
++  Easy collaboration. A combination of the two above points means that you can send an `R project` directory to a colleague and the whole thing will run with no issue. This would otherwise require, at minimum, manually changing all file paths.
++  Version control. `RStudio` has an in-built point-and-click git interface that is only accessible when using an `R Project`.
 
+You can either start an `R Project` from scratch by creating a new directory, or add `R Project` functionality to an existing directory. You can create an `R Project` from either the `File` menu in the top left of the screen, or from the `Project` menu in the top right.
 
+```{r}
+###################
+### Challenge 2 ###
+###################
 
-Directory structures
-Code script structures
-Code script styles
+# Add an `R Project` to the existing directory you created in Challenge 1. 
+```
+
+<hr class="small">
+
+## Code script structures
+
+A script is essentially a text file that `R` recognises as containing `R` code and providing it with syntax highlighting. You can run `R` commands in the `Console`, but there is no way of saving the commands you've used for future reference. Instead you can enter your commands in a script file to save them like any other document. Much like for directories, it is important to structure your code scripts. Without structure it is extremely difficult to return to an old script and figure out what you've done.
+
+Just like there is no single correct way of structuring a directory, there is no single correct way of structuring a script. It is up to you to settle on a structure that works for you. Some things to consider using:
+
++  A title and "script abstract" at the top of the script saying what the script is for and how it does it.
++  Use headings/subheadings to make navigating between sections easier. These will obviously depend on what the script is doing, but common ones include `Load Packages`, `Load Data`, `Data Manipulation`, `Model Fitting`, `Plotting`, and `Save Outputs`.
++  Have any loaded packages called at the beginning of the script. This avoids some of the issues that may arise from function masking, and makes it easy for anyone else using the script to identify the packages they need to install.
++  Comment your code! Add comments to your code to remind you not only *what* you've done but *why* you've done it that way. If you come back to a script from six months ago it will be much easier to remember what you've done.
+
+<hr class="small">
+
+## Code style guides
+
+Another thing that makes reading a code script easier is the use of a style guide. A style guide is essentially a series of self-imposed grammer/syntax rules to follow to write neat and human-readable code. Two commonly adopted ones are [Google's `R` style guide](https://google.github.io/styleguide/Rguide.xml) and [Hadley Wickham's `R` style guide](http://style.tidyverse.org/). You can also define your own by picking and choosing rules from different places. Some common things to consider:
+
++  Naming conventions. Be consistent with how you name variables, functions, etc. Many people implement a different style for variables and functions to help tell them apart. Some options are:
+    +  camelCase
+    +  PascalCase / UpperCamelCase
+    +  snake_case
+    +  snake.case.variant
+    +  ALL_CAPS (normally reserved for constants)
++  `<-` instead of `=` for variable assignment
++  A line length of <80 characters. This is more of a rule of thumb not hard and fast, but the idea is to keep from having to scroll across to read a full command
++  Whitespace. `R` will ignore all whitespace in your code except for between a function name and it's opening parenthesis i.e. `mean (1,2)`, and inside object names. Make use of it to make the code readable (e.g. on either side of an operator `1 + 2`) but don't add it in unnecessarily.
++  Multi-line function calls. `R` recognises that a function call is not finished if the line ends in a comma, so you can add each argument in a function to a new line to make it fit on a page. E.g.
+```{r eval=FALSE}
+sum(1:100,
+    na.rm = TRUE)
+```
+
+<hr class="small">
