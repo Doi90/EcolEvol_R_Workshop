@@ -1,1 +1,282 @@
 # Basic R
+
+<hr class="double">
+
+## Using R as a calculator
+
+The simplest thing you could do with R is do arithmetic:
+
+```{r}
+1 + 100
+```
+
+If you type in an incomplete command, `R` will wait for you to complete it. If the symbol to the left of the bottom line in the console is `>` then `R` is ready to accept a new command, while a `+` means it is waiting for you to finsh the previous command.
+
+If you want to cancel a command you can simply hit `Esc` and RStudio will give you back the ">" prompt (or `Ctrl+C` for a Mac). This is a useful tip to remember if you ever get stuck in a `+` loop in the console!
+
+When using `R` as a calculator, the order of operations is the same as you would have learnt back in school.
+
+From highest to lowest precedence:
+
++  Parentheses: `(`, `)`
++  Exponents: `^` or `**`
++  Divide: `/`
++  Multiply: `*`
++  Add: `+`
++  Subtract: `-`
+
+```{r}
+3 + 5 * 2
+```
+
+Use parentheses to group operations in order to force the order of evaluation if it differs from the default, or to make clear what you intend.
+
+```{r}
+(3 + 5) * 2
+```
+
+This can get unwieldy when not needed, but  clarifies your intentions. Remember that others may later read your code.
+
+```{r, eval=FALSE}
+(3 + (5 * (2 ^ 2))) # hard to read
+3 + 5 * 2 ^ 2       # clear, if you remember the rules
+3 + 5 * (2 ^ 2)     # if you forget some rules, this might help
+```
+
+The text after each line of code is called a "comment". Anything that follows after the hash (or octothorpe) symbol `#` is ignored by `R` when it executes code.
+
+Really small or large numbers get a scientific notation:
+
+```{r}
+2/10000
+```
+
+Which is shorthand for "multiplied by `10^XX`". So `2e-4` is shorthand for `2 * 10^(-4)`.
+
+You can write numbers in scientific notation too:
+
+```{r}
+5e3  # Note the lack of minus here
+```
+
+<hr class="small">
+
+## Mathematical functions
+
+`R` has many built in mathematical functions. To call a function, we simply type its name, followed by  open and closing parentheses. Anything we type inside the parentheses is called the function's arguments:
+
+```{r}
+sin(1)  # trigonometry functions
+```
+
+```{r}
+log(1)  # natural logarithm
+```
+
+```{r}
+log10(10) # base-10 logarithm
+```
+
+```{r}
+exp(0.5) # e^(1/2)
+```
+
+Don't worry about trying to remember every function in `R`. You can simply look them up on google, or if you can remember the start of the function's name, use the tab completion in `RStudio`.
+
+This is one advantage that `RStudio` has over `R` on its own, it has autocompletion abilities that allow you to more easily look up functions, their arguments, and the values that they take.
+
+Typing a `?` before the name of a function will open the help page for that function. As well as providing a detailed description of the function  and how it works, scrolling to the bottom of the help page will usually show a collection of code examples which illustrate how to use it. We'll go through an example later.
+
+<hr class="small">
+
+## Comparing things
+
+We can also do comparison in `R`:
+
+```{r}
+1 == 1  # equality (note two equals signs, read as "is equal to")
+```
+
+```{r}
+1 != 2  # inequality (read as "is not equal to")
+```
+
+```{r}
+1 <  2  # less than
+```
+
+```{r}
+1 <= 1  # less than or equal to
+```
+
+```{r}
+1 > 0  # greater than
+```
+
+```{r}
+1 >= -9 # greater than or equal to
+```
+
+A word of warning about comparing numbers: you should never use `==` to compare two numbers unless they are integers (a data type which can specifically represent only whole numbers).
+
+Computers may only represent decimal numbers with a certain degree of precision, so two numbers which look the same when printed out by `R`, may actually have different underlying representations and therefore be different by a small margin of error (called Machine numeric tolerance).
+
+Instead you should use the `all.equal()` function.
+
+<hr class="small">
+
+## Variables and assignment
+
+We can store values in variables using the assignment operator `<-`, like this:
+
+```{r}
+x <- 1
+```
+
+Notice that assignment does not print a value to the console. Instead, we stored it for later in something called a **variable**. `x` now contains the **value** `1`:
+
+```{r}
+x
+```
+
+Look for the `Environment` tab in one of the panes of `RStudio`, and you will see that `x` and its value have appeared. Our variable `x` can be used in place of a number in any calculation that expects a number:
+
+```{r}
+log(x)
+```
+
+Notice also that variables can be reassigned:
+
+```{r}
+x <- 100
+```
+
+`x` used to contain the value 1 and and now it has the value 100.
+
+Assignment values can contain the variable being assigned to:
+
+```{r}
+x <- x + 1 #notice how RStudio updates its description of x on the top right tab
+```
+
+The right hand side of the assignment can be any valid `R` expression. The right hand side is *fully evaluated* before the assignment occurs.
+
+Variable names can contain letters, numbers, underscores and periods. They cannot start with a number nor contain spaces at all. 
+
+<hr class="small">
+
+## Vectorisation
+
+One final thing to be aware of is that `R` is *vectorised*, meaning that variables and functions can have vectors as values. For example:
+
+```{r}
+1:5
+2^(1:5)
+x <- 1:5
+2^x
+```
+
+<hr class="small">
+
+## Managing your environment
+
+There are a few useful commands you can use to interact with the `R` session.
+
+`ls()` will list all of the variables and functions stored in the global environment (your working R session):
+
+```{r}
+ls()
+```
+
+You can use `rm()` to delete objects you no longer need:
+
+```{r}
+rm(x)
+```
+
+If you have lots of things in your environment and want to delete all of them, you can pass the results of `ls()` to the `rm()` function:
+
+```{r}
+rm(list = ls())
+```
+
+In this case we've combined the two. Just like the order of operations, anything inside the innermost parentheses is evaluated first, and so on.
+
+In this case we've specified that the results of `ls()` should be used for the `list` argument in `rm()`. When assigning values to arguments by name, you use the `=` operator!!
+
+If instead we use `<-`, there will be unintended side effects, or you may just
+get an error message:
+
+```{r, error=TRUE}
+rm(list <- ls())
+```
+
+Pay attention when `R` does something unexpected! Errors, like above, are thrown when R cannot proceed with a calculation. Warnings on the other hand usually mean that the function has run, but it probably hasn't worked as expected.
+
+In both cases, the message that `R` prints out usually give you clues how to fix a problem.
+
+<hr class="small">
+
+## R Packages
+
+It is possible to add functions to `R` by writing a package, or by obtaining a package written by someone else. As of this writing, there are over 7,000 packages available on CRAN (the comprehensive `R` archive network). `R` and `RStudio` have functionality for managing packages:
+
++  You can see what packages are installed by typing `installed.packages()`
++  You can install packages by typing `install.packages("packagename")`, where `packagename` is the package name, in quotes.
++  You can update installed packages by typing `update.packages()`
++  You can remove a package with `remove.packages("packagename")`
++  You can make a package available for use with `library(packagename)`
+
+```{r}
+###################
+### Challenge 3 ###
+###################
+
+# Which of the following are valid variable names?
+
+# min_height
+# max.height
+# _age
+# .mass
+# MaxLength
+# min-length
+# 2widths
+# celsius2kelvin
+```
+
+```{r}
+###################
+### Challenge 4 ###
+###################
+
+# What will be the value of each  variable  after each statement in the following program?
+
+# mass <- 47.5
+# age <- 122
+# mass <- mass * 2.3
+# age <- age - 20
+```
+
+```{r}
+###################
+### Challenge 5 ###
+###################
+
+# Run the code from the previous challenge, and write a command to compare mass to age. Is mass larger than age?
+```
+
+```{r}
+###################
+### Challenge 6 ###
+###################
+
+#Clean up your working environment by deleting the mass and age variables.
+```
+
+```{r}
+###################
+### Challenge 7 ###
+###################
+
+# Install the following packages: `dplyr`, `tidyr`
+```
