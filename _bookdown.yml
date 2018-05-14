@@ -1,4 +1,9 @@
-book_filename: "Ecol_Evol_R_Workshop"
-chapter_name: "Chapter "
+book_filename: "Ecology and Evolution PhD Program Beginner's R Workshop.md"
+author: "David Wilkinson"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
 github-repo: Doi90/EcolEvol_R_Workshop
-output_dir: docs
+link-citations: yes
