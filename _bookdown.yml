@@ -7,3 +7,4 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 github-repo: Doi90/EcolEvol_R_Workshop
 link-citations: yes
+output_dir: "docs"

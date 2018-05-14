@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="r-vs-rstudio.html">
+<link rel="next" href="basic-r.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="lodestar.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Ecology and Evolution Beginner's R Workshop</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preamble</a></li>
+<li class="chapter" data-level="2" data-path="technical-requirements.html"><a href="technical-requirements.html"><i class="fa fa-check"></i><b>2</b> Technical Requirements</a></li>
+<li class="chapter" data-level="3" data-path="r-vs-rstudio.html"><a href="r-vs-rstudio.html"><i class="fa fa-check"></i><b>3</b> R vs RStudio</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-vs-rstudio.html"><a href="r-vs-rstudio.html#r-vs-rstudio-1"><i class="fa fa-check"></i><b>3.1</b> R vs RStudio</a></li>
+<li class="chapter" data-level="3.2" data-path="r-vs-rstudio.html"><a href="r-vs-rstudio.html#r"><i class="fa fa-check"></i><b>3.2</b> R</a></li>
+<li class="chapter" data-level="3.3" data-path="r-vs-rstudio.html"><a href="r-vs-rstudio.html#rstudio"><i class="fa fa-check"></i><b>3.3</b> RStudio</a></li>
+<li class="chapter" data-level="3.4" data-path="r-vs-rstudio.html"><a href="r-vs-rstudio.html#work-flow-within-rstudio"><i class="fa fa-check"></i><b>3.4</b> Work flow within RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="project-set-up.html"><a href="project-set-up.html"><i class="fa fa-check"></i><b>4</b> Project Set-up</a><ul>
+<li class="chapter" data-level="4.1" data-path="project-set-up.html"><a href="project-set-up.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="project-set-up.html"><a href="project-set-up.html#directory-structures"><i class="fa fa-check"></i><b>4.2</b> Directory structures</a></li>
+<li class="chapter" data-level="4.3" data-path="project-set-up.html"><a href="project-set-up.html#r-projects"><i class="fa fa-check"></i><b>4.3</b> R Projects</a></li>
+<li class="chapter" data-level="4.4" data-path="project-set-up.html"><a href="project-set-up.html#code-script-structures"><i class="fa fa-check"></i><b>4.4</b> Code script structures</a></li>
+<li class="chapter" data-level="4.5" data-path="project-set-up.html"><a href="project-set-up.html#code-style-guides"><i class="fa fa-check"></i><b>4.5</b> Code style guides</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="basic-r.html"><a href="basic-r.html"><i class="fa fa-check"></i><b>5</b> Basic R</a><ul>
+<li class="chapter" data-level="5.1" data-path="basic-r.html"><a href="basic-r.html#using-r-as-a-calculator"><i class="fa fa-check"></i><b>5.1</b> Using R as a calculator</a></li>
+<li class="chapter" data-level="5.2" data-path="basic-r.html"><a href="basic-r.html#mathematical-functions"><i class="fa fa-check"></i><b>5.2</b> Mathematical functions</a></li>
+<li class="chapter" data-level="5.3" data-path="basic-r.html"><a href="basic-r.html#comparing-things"><i class="fa fa-check"></i><b>5.3</b> Comparing things</a></li>
+<li class="chapter" data-level="5.4" data-path="basic-r.html"><a href="basic-r.html#variables-and-assignment"><i class="fa fa-check"></i><b>5.4</b> Variables and assignment</a></li>
+<li class="chapter" data-level="5.5" data-path="basic-r.html"><a href="basic-r.html#vectorisation"><i class="fa fa-check"></i><b>5.5</b> Vectorisation</a></li>
+<li class="chapter" data-level="5.6" data-path="basic-r.html"><a href="basic-r.html#managing-your-environment"><i class="fa fa-check"></i><b>5.6</b> Managing your environment</a></li>
+<li class="chapter" data-level="5.7" data-path="basic-r.html"><a href="basic-r.html#r-packages"><i class="fa fa-check"></i><b>5.7</b> R Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="seeking-help.html"><a href="seeking-help.html"><i class="fa fa-check"></i><b>6</b> Seeking Help</a><ul>
+<li class="chapter" data-level="6.1" data-path="seeking-help.html"><a href="seeking-help.html#reading-help-files"><i class="fa fa-check"></i><b>6.1</b> Reading Help files</a></li>
+<li class="chapter" data-level="6.2" data-path="seeking-help.html"><a href="seeking-help.html#special-operators"><i class="fa fa-check"></i><b>6.2</b> Special Operators</a></li>
+<li class="chapter" data-level="6.3" data-path="seeking-help.html"><a href="seeking-help.html#getting-help-on-packages"><i class="fa fa-check"></i><b>6.3</b> Getting help on packages</a></li>
+<li class="chapter" data-level="6.4" data-path="seeking-help.html"><a href="seeking-help.html#when-you-kind-of-remember-the-function"><i class="fa fa-check"></i><b>6.4</b> When you kind of remember the function</a></li>
+<li class="chapter" data-level="6.5" data-path="seeking-help.html"><a href="seeking-help.html#when-you-have-no-idea-where-to-begin"><i class="fa fa-check"></i><b>6.5</b> When you have no idea where to begin</a></li>
+<li class="chapter" data-level="6.6" data-path="seeking-help.html"><a href="seeking-help.html#when-your-code-doesnt-work-seeking-help-from-your-peers"><i class="fa fa-check"></i><b>6.6</b> When your code doesn’t work: seeking help from your peers</a></li>
+<li class="chapter" data-level="6.7" data-path="seeking-help.html"><a href="seeking-help.html#other-ports-of-call"><i class="fa fa-check"></i><b>6.7</b> Other ports of call</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-in-r.html"><a href="data-in-r.html"><i class="fa fa-check"></i><b>7</b> Data in R</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-in-r.html"><a href="data-in-r.html#data-types"><i class="fa fa-check"></i><b>7.1</b> Data Types</a></li>
+<li class="chapter" data-level="7.2" data-path="data-in-r.html"><a href="data-in-r.html#type-coercion"><i class="fa fa-check"></i><b>7.2</b> Type Coercion</a></li>
+<li class="chapter" data-level="7.3" data-path="data-in-r.html"><a href="data-in-r.html#data-structures"><i class="fa fa-check"></i><b>7.3</b> Data Structures</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="data-in-r.html"><a href="data-in-r.html#vectors"><i class="fa fa-check"></i><b>7.3.1</b> Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="data-in-r.html"><a href="data-in-r.html#lists"><i class="fa fa-check"></i><b>7.4</b> Lists</a></li>
+<li class="chapter" data-level="7.5" data-path="data-in-r.html"><a href="data-in-r.html#data-frames"><i class="fa fa-check"></i><b>7.5</b> Data Frames</a></li>
+<li class="chapter" data-level="7.6" data-path="data-in-r.html"><a href="data-in-r.html#factors"><i class="fa fa-check"></i><b>7.6</b> Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-frame-manipulation.html"><a href="data-frame-manipulation.html"><i class="fa fa-check"></i><b>8</b> Data Frame Manipulation</a><ul>
+<li class="chapter" data-level="8.1" data-path="data-frame-manipulation.html"><a href="data-frame-manipulation.html#subsetting-data"><i class="fa fa-check"></i><b>8.1</b> Subsetting data</a></li>
+<li class="chapter" data-level="8.2" data-path="data-frame-manipulation.html"><a href="data-frame-manipulation.html#data-cleaning"><i class="fa fa-check"></i><b>8.2</b> Data Cleaning</a></li>
+<li class="chapter" data-level="8.3" data-path="data-frame-manipulation.html"><a href="data-frame-manipulation.html#logical-subsetting"><i class="fa fa-check"></i><b>8.3</b> Logical Subsetting</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="data-frame-manipulation.html"><a href="data-frame-manipulation.html#single-criteria"><i class="fa fa-check"></i><b>8.3.1</b> Single Criteria</a></li>
+<li class="chapter" data-level="8.3.2" data-path="data-frame-manipulation.html"><a href="data-frame-manipulation.html#multiple-criteria"><i class="fa fa-check"></i><b>8.3.2</b> Multiple Criteria</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>9</b> Data Visualisation</a><ul>
+<li class="chapter" data-level="9.1" data-path="data-visualisation.html"><a href="data-visualisation.html#creating-publication-quality-graphics"><i class="fa fa-check"></i><b>9.1</b> Creating publication quality graphics</a></li>
+<li class="chapter" data-level="9.2" data-path="data-visualisation.html"><a href="data-visualisation.html#grammar-of-graphics"><i class="fa fa-check"></i><b>9.2</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="9.3" data-path="data-visualisation.html"><a href="data-visualisation.html#layers"><i class="fa fa-check"></i><b>9.3</b> Layers</a></li>
+<li class="chapter" data-level="9.4" data-path="data-visualisation.html"><a href="data-visualisation.html#transformations-and-statistics"><i class="fa fa-check"></i><b>9.4</b> Transformations and statistics</a></li>
+<li class="chapter" data-level="9.5" data-path="data-visualisation.html"><a href="data-visualisation.html#multi-panel-figures"><i class="fa fa-check"></i><b>9.5</b> Multi-panel figures</a></li>
+<li class="chapter" data-level="9.6" data-path="data-visualisation.html"><a href="data-visualisation.html#further-customisation"><i class="fa fa-check"></i><b>9.6</b> Further Customisation</a></li>
+<li class="chapter" data-level="9.7" data-path="data-visualisation.html"><a href="data-visualisation.html#saving-plots"><i class="fa fa-check"></i><b>9.7</b> Saving Plots</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://nikkirubinstein.gitbooks.io/resguides-introductory-r-workshop/content/" target="blank"> Modified with permission from Research Platforms Services material</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="project-set-up" class="section level1">
+<h1><span class="header-section-number">4</span> Project Set-up</h1>
+<hr class="double">
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">4.1</span> Introduction</h2>
+<p>Before we jump in to teaching how to code in <code>R</code> we’re going to establish some programming <em>best practices</em>. These will not only make your programming experience proceed more smoothly, but most importantly you will thank yourself in six months for adopting them now when you have to revisit an older script and have to figure out <em>what</em> you did, <em>how</em> you did it, and <em>why</em> you did it that way.</p>
+<hr class="small">
+</div>
+<div id="directory-structures" class="section level2">
+<h2><span class="header-section-number">4.2</span> Directory structures</h2>
+<p>It is best to keep all files associated with a given project (like a PhD chapter) located in a single root folder. This is commonly called a “one folder, one project” mentality, and has multiple benefits including:</p>
+<ul>
+<li>Easy communication with collaborators (particularly in a version controlled environment)</li>
+<li>A clear, easily navigatable directory structure makes finding specific files easier</li>
+<li>You don’t accidently lose an important file for your analysis because you kept it somewhere else</li>
+</ul>
+<p>That said, there is no single best way to organise a file system. The key is to make sure that your chosen directory structure and the location of the files therein is consistent, informative, and, most importantly, works for you.</p>
+<p>An example directory structure (for a <code>MyProject</code> root directory) might include the following:</p>
+<ul>
+<li>A <code>data</code> folder that contains all input data (and associated metadata) for the analysis. This is then potentially split further into:</li>
+<li>A <code>raw</code> folder for your raw data files. These should never be modified so it is best to keep them separate.</li>
+<li>A <code>clean</code> folder for your cleaned up versions of your raw data files.</li>
+<li>A <code>doc</code> or <code>reports</code> folder for any manuscripts. This can include the manuscript submitted to a journal for publication, reports for a funding body like a government or NGO, or some markdown files documenting the steps of the analysis. You may wish to sub-divide this folder to include these different types or, alternatively, include both a <code>docs</code> and <code>reports</code> folder</li>
+<li>A <code>figs</code> or <code>images</code> folder for any graphs and figures generated in the analysis</li>
+<li>An <code>output</code> folder to store any type of intermediate or output files. This could include model objects, simulations, etc. Some people prefer to store their cleaned data here instead of in a sub-directory of <code>data</code></li>
+<li>A <code>scripts</code> folder to store the code scripts used in the analysis</li>
+</ul>
+<pre class="{r}"><code>###################
+### Challenge 1 ###
+###################
+
+# Build your own project directory structure for this workshop. For our purposes today you will require at least a `data`, `scripts`, and `images` folder</code></pre>
+<hr class="small">
+</div>
+<div id="r-projects" class="section level2">
+<h2><span class="header-section-number">4.3</span> R Projects</h2>
+<p>R builds on the “one folder, one project” mentality with the creation of <code>R Projects</code>. An <code>R Project</code> serves as a self-contained environment for your entire analysis. Amongst other things, the benefits of an <code>R Project</code> are:</p>
+<ul>
+<li>Relative file paths. The path to a file now only needs to be specified relative to the <code>R project</code> root directory. No more file paths going off the screen!</li>
+<li>Maintain your environment between sessions. Normally, unless explicitly saved to file and re-loaded, your environment is lost between sessions. This means re-running your code again and again, which is unfeasible for larger analysis that may take hours or days to run. An <code>R project</code> will automatically save and re-load your environment.</li>
+<li>Easy collaboration. A combination of the two above points means that you can send an <code>R project</code> directory to a colleague and the whole thing will run with no issue. This would otherwise require, at minimum, manually changing all file paths.</li>
+<li>Version control. <code>RStudio</code> has an in-built point-and-click git interface that is only accessible when using an <code>R Project</code>.</li>
+</ul>
+<p>You can either start an <code>R Project</code> from scratch by creating a new directory, or add <code>R Project</code> functionality to an existing directory. You can create an <code>R Project</code> from either the <code>File</code> menu in the top left of the screen, or from the <code>Project</code> menu in the top right.</p>
+<pre class="{r}"><code>###################
+### Challenge 2 ###
+###################
+
+# Add an `R Project` to the existing directory you created in Challenge 1. </code></pre>
+<hr class="small">
+</div>
+<div id="code-script-structures" class="section level2">
+<h2><span class="header-section-number">4.4</span> Code script structures</h2>
+<p>A script is essentially a text file that <code>R</code> recognises as containing <code>R</code> code and providing it with syntax highlighting. You can run <code>R</code> commands in the <code>Console</code>, but there is no way of saving the commands you’ve used for future reference. Instead you can enter your commands in a script file to save them like any other document. Much like for directories, it is important to structure your code scripts. Without structure it is extremely difficult to return to an old script and figure out what you’ve done.</p>
+<p>Just like there is no single correct way of structuring a directory, there is no single correct way of structuring a script. It is up to you to settle on a structure that works for you. Some things to consider using:</p>
+<ul>
+<li>A title and “script abstract” at the top of the script saying what the script is for and how it does it.</li>
+<li>Use headings/subheadings to make navigating between sections easier. These will obviously depend on what the script is doing, but common ones include <code>Load Packages</code>, <code>Load Data</code>, <code>Data Manipulation</code>, <code>Model Fitting</code>, <code>Plotting</code>, and <code>Save Outputs</code>.</li>
+<li>Have any loaded packages called at the beginning of the script. This avoids some of the issues that may arise from function masking, and makes it easy for anyone else using the script to identify the packages they need to install.</li>
+<li>Comment your code! Add comments to your code to remind you not only <em>what</em> you’ve done but <em>why</em> you’ve done it that way. If you come back to a script from six months ago it will be much easier to remember what you’ve done.</li>
+</ul>
+<hr class="small">
+</div>
+<div id="code-style-guides" class="section level2">
+<h2><span class="header-section-number">4.5</span> Code style guides</h2>
+<p>Another thing that makes reading a code script easier is the use of a style guide. A style guide is essentially a series of self-imposed grammer/syntax rules to follow to write neat and human-readable code. Two commonly adopted ones are <a href="https://google.github.io/styleguide/Rguide.xml">Google’s <code>R</code> style guide</a> and <a href="http://style.tidyverse.org/">Hadley Wickham’s <code>R</code> style guide</a>. You can also define your own by picking and choosing rules from different places. Some common things to consider:</p>
+<ul>
+<li>Naming conventions. Be consistent with how you name variables, functions, etc. Many people implement a different style for variables and functions to help tell them apart. Some options are:
+<ul>
+<li>camelCase</li>
+<li>PascalCase / UpperCamelCase</li>
+<li>snake_case</li>
+<li>snake.case.variant</li>
+<li>ALL_CAPS (normally reserved for constants)</li>
+</ul></li>
+<li><code>&lt;-</code> instead of <code>=</code> for variable assignment</li>
+<li>A line length of &lt;80 characters. This is more of a rule of thumb not hard and fast, but the idea is to keep from having to scroll across to read a full command</li>
+<li>Whitespace. <code>R</code> will ignore all whitespace in your code except for between a function name and it’s opening parenthesis i.e. <code>mean (1,2)</code>, and inside object names. Make use of it to make the code readable (e.g. on either side of an operator <code>1 + 2</code>) but don’t add it in unnecessarily.</li>
+<li>Multi-line function calls. <code>R</code> recognises that a function call is not finished if the line ends in a comma, so you can add each argument in a function to a new line to make it fit on a page. E.g. <code>{r eval=FALSE} sum(1:100, na.rm = TRUE)</code></li>
+</ul>
+<hr class="small">
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-vs-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="basic-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true,
+"search": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>
