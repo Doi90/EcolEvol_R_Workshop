@@ -1,3 +1,14 @@
+---
+title: "Ecology and Evolution PhD Program Beginner's R Workshop"
+author: "David Wilkinson"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: Doi90/EcolEvol_R_Workshop
+---
+
 # Preamble
 
 This is the course notes for the *Beginner's R Workshop* for the Ecology and Evolution PhD program joint venture of the School of BioSciences, School of Ecosystem and Forestry Science, and School of Geography. The goal of this workshop is to teach new PhD students how to use **R** for data analysis. **R** is a free, open-source programming language designed with statistical analysis in mind, and widely used throught many scientific disciplines. This workshop is designed to provide new PhD students in our three Schools with a strong foundation in **R**'s fundamentals to facilitate their own research projects.
