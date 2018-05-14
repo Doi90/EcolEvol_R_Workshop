@@ -1,0 +1,132 @@
+# Data Frame Manipulation
+
+## Subsetting data
+
+```{r, include=FALSE}
+# Silently load in the data so the rest of the lesson works
+titanic <- read.csv("https://goo.gl/4Gqsnz", header=TRUE)
+```
+
+Data frames are arguably the most common data structure you will work with in R for data analysis. We have previously covered some simple subsetting methods using `$` and `[ , ]` for extraction of specific elements, but what if we're only after elements that meet a set criteria? Trees above a certain height, species from a limited subset of taxa, only data points with no missing values?
+
+These are all types of logical subsetting. `R` generates a vector of `TRUE` and `FALSE` values based on your set criteria and only returns that elements of your data frame that correspond to `TRUE` values.
+
+For this section of the course we will be using a dataset about the passengers on the titanic. It is found online and you can download it with the following code:
+
+```{r}
+titanic <- read.csv("https://goo.gl/4Gqsnz", header=TRUE)
+```
+
+## Data Cleaning
+
+One of the first steps of analysing a dataset is cleaning it up. As far as subsetting goes, it is often important to remove incomplete rows of data. Some times a particular observation is missing a measurement of a variable and this can cause issues:
+
+```{r}
+## Calculate the average age of passengers on the Titanic
+
+mean(titanic$Age)
+
+## Check for missing values
+
+anyNA(titanic$Age)
+```
+
+Here, we can't calculate the average age of passengers on the titanic because we don't know the age of some passengers. Several summary statistic functions in `R` have a `na.rm` argument that lets you ignore `NA` values when performing the calculation:
+
+```{r}
+mean(titanic$Age, na.rm = TRUE)
+
+mean(titanic$Survived, na.rm = TRUE)
+```
+
+But the two values above can't be fairly used in conjunction with each other. Why is that? 
+
+Well it turns out that while we don't know the age of some of the passengers, we do know if each of them survived. This means we are summarising values from different data sets: the survival rate of *all* passengers, and the mean age of passengers *with known ages*. Unless the missing values have an identical distribution to the known values their absence will change the mean value. What if all of the unknowns are children? What if they are all >50?
+
+This may seem somewhat trivial here, but if you are performing more elaborate statistical analyses like fitting linear models then it is crucial to ensure your datasets are identical. Models fit to two different datasets cannot be directly compared with model evaluation statistics like AIC, R^2^, AUC, etc. You can usually supply datasets with `NA`s to model fitting functoins in `R` but they will automatically drop rows with missing values **for covariates included in the model only**. This means that two models fit to the same data frame with different covariate combinations can actually be fit to different datasets and no longer comparable for model selection.
+
+They key to avoiding this pitfall is to remove all `NA` values in advance. Conveniently, `R` makes this easy with the `na.omit()` function. Lets create a new data frame that is a version of `titanic` without missing values:
+
+```{r}
+titanic_clean <- na.omit(titanic)
+```
+
+## Logical Subsetting
+
+### Single Criteria
+
+You will often want to subset your data frame such that you only keep values that meet a certain criteria:
+
++  Only observations for a certain species
++  Only observations for all species *except* a certian species
++  Only observations for a specific geographic region
++  Only observations for specific gene locus
+
+This is achieved by suppling a logical test in place of a particular index inside the `[ , ]` notation. This is going to be the subsetting of rows by values in a single column, so we put our logical test on the left of the `,` in `[ , ]`. Lets say we only want to keep the passengers who paid less than ten pounds for their ticket:
+
+```{r}
+titanic_cheap <- titanic_clean[titanic_clean$Fare < 10, ]
+
+dim(titanic_cheap)
+```
+
+Here we have kept only the rows where the `Fare` column was < 10, and kept all columns (by leaving the column section blank). This reduced our dataset to a subset of only 236 passengers.
+
+```{r}
+####################
+### Challenge 13 ###
+####################
+
+# Create a new data frame called titanic_35 that includes only the passengers aged 35 or under.
+```
+
+### Multiple Criteria
+
+There are many situations in which you will wish to combine multiple logical criteria. 
+
++  All ecoregions that occur North of a certain latitude **and** West of a certain longitude 
++  All species that are mammals **or** birds **and** occur in Victoria
++  All gene loci identified with gene markers longer than X **and** less than Y
+
+To do this we can just combine multiple logical tests in `R` using the *AND* `&` and *OR* `|` operators.
+
++  `&` returns `TRUE` if both the left and right are `TRUE`.
++  `|` returns `TRUE` if either the left or right (or both) are `TRUE`.
+
+You may sometimes see `&&` and `||` instead of `&` and `|`. These operators only look at the first element of each vector and ignore the remaining elements. These operators are mainly used in programming, rather than data analysis and you can comfortably ignore them.
+
+We supply multiple criteria tests to the `[ , ]` notation in this format: `<logical test> &/| <logical test>`. For example, lets keep only the passengers that were in first class and paid more than two hundred pounds for their ticket:
+
+```{r}
+titanic_rich <- titanic_clean[titanic_clean$Pclass == 1 & titanic_clean$Fare > 200, ]
+
+dim(titanic_rich)
+```
+
+Only eighteen pasengers!
+
+```{r}
+####################
+### Challenge 14 ###
+####################
+
+# Create a new data frame that includes only the passengers aged < 18 or >= 50.
+```
+
+```{r}
+####################
+### Challenge 15 ###
+####################
+
+# Create a new data frame that includes only female, third class passengers.
+```
+
+```{r}
+####################
+### Challenge 16 ###
+####################
+
+# Create a new data frame that includes only male passengers aged either 18, 23, 31, or 46.
+
+# Hiint: Rememberthe %in% operator!
+```
