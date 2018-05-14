@@ -278,5 +278,5 @@ It is possible to add functions to `R` by writing a package, or by obtaining a p
 ### Challenge 7 ###
 ###################
 
-# Install the following packages: `dplyr`, `tidyr`
+# Install the following package: `ggplot2`
 ```
