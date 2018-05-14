@@ -1,1 +1,371 @@
-# Subsetting
+# Data in R
+
+<hr class="double">
+
+## Data Types
+
+`R` can process a wide array of data types, but a key point to understand is that since it needs to handle different data types in different ways it will store them differently too.
+
+There are 5 main data types:
+
++  doubles/numerics: standard numbers e.g. 3.14
++  integers: whole numbers *without* decimal places eg. 1 but not 1.0 (and written as `1L` to specify integer status)
++  complex: These you can pretty much ignore. This is dealing with things like imaginary numbers.
++  logical: These are boolean values of `TRUE` and `FALSE` that are encoded as `1` and `0` respectively
++  character: These are strings of text e.g. `word` or `this is a sentence`. When specifying these in `R` they need be be enclosed in quotation marks like `"word"` or `'word'`.
+
+We can find the type of data something is stored as in `R` with the `typeof()` function, but for the majority of purposes it is better to know the *class* of data as that is the usual way `R` will communicate it to you. To do this we use the `class()` function:
+
+```{r}
+class(3.14)
+class(1L)
+class(1+1i)
+class(TRUE)
+class('banana')
+```
+
+<hr class="single">
+
+## Type Coercion
+
+Data types/classes are important because we need to handle different types of data differently. For exampe, we can add two numeric values together, or a numeric and an integer, but we can't add a numeric and a character together. `10 + "apple"` is nonsense, and `R` treats it that way. This enforced strictness is important, but it has some drawbacks to be aware of. The most important one is that all data in a single vector must be the same type. If you have a mix of values then everything will be converted to the "simplest" data type according to the following rule:
+
+<center>**logical > integer > numeric > complex > character**</center>
+
+A vector in `R` is essentially just an ordered list of things, with the special condition that *everything in the vector must be the same basic data type*. We can create a vector of values using the `c()` function:
+
+```{r}
+my_vec <- c(2,6,3)
+my_vec
+```
+
+Given what we've learned so far, what do you think the following will produce?
+
+```{r}
+vec1 <- c(2,6,'3')
+vec2 <- c("apple", 2.1, TRUE)
+vec3 <- c(2, 2.0, 2L)
+```
+
+You can try to force coercion against this flow using the `as.*()` functions. Not everything is possible, but it useful to remember for if data is read in incorrectly by `R` (like numerics as a character string).
+
+```{r}
+as.numeric(c('0','2','4'))
+
+as.logical(1)
+
+as.logical(0)
+
+as.logical(-0.5)
+
+as.logical("house")
+```
+
+As you can see, some surprising things can happen when `R` forces one basic data type into another! Nitty-gritty of type coercion aside, the point is: if your data doesn't look like what you thought it was going to look like, type coercion may well be to blame.
+
+<hr class="single">
+
+## Data Structures
+
+Now that we understand *data types* it is time to move on to the *data structures* that `R` uses to store data. The three data structures we will cover in this course are vectors, data frames, and lists. There are other data structures (like matrices and arrays) that we wont cover, but similar principles apply.
+
++  Vectors are a one-dimensional sequence of data elements. Every element in a vector must be the same data type or it will undergo type coercion
++  Lists are a collection of elements. Each element can be any type of `R` object (vector, data frame, a single value, even another list).
++  Data frames are a two-dimensional table of data elements. Each column is a vector (so must be the same data type), while each row is a list (so can contain different data types)
+
+### Vectors
+
+We've alredy covered how to create a basic vector, so now we will cover how to manipulate the vector.
+
+The `c()` function can also append things to an existing vector:
+
+```{r}
+ab_vector <- c('a', 'b')
+ab_vector
+
+concat_example <- c(ab_vector, 'SWC')
+concat_example
+```
+
+You can also create vectors of a series of numbers using more efficient methods. The `:` operator creates a vector of numbers from the first number to the second number by steps of 1.
+
+```{r}
+1:10
+
+1.1:9.9
+```
+
+The `seq()` function lets you create a sequence of numbers with a specified step value:
+
+```{r}
+seq(from = 1,
+    to = 10,
+    by=0.1)
+```
+
+#### Vector Subsetting
+
+To subset a vector we use what is known as square bracket notation `[]`. The individual elements in a vector are ordered, so we can call for specific elements directly by placing the index inside `[]`.
+
+```{r}
+my_vec <- c(1,3,5,6,10)
+
+my_vec[3]
+
+my_vec[c(2,4)]
+```
+
+Instead of asking for specific elements of a vector by index you can ask `R` to return any values that meet a specific criteria. We do this by placing a logical/boolean test in `[]` in place of an index.
+
+```{r}
+my_vec <- 1:10
+
+my_vec[my_vec > 8]  # Return values > 8
+
+my_vec[my_vec %% 2 == 0] # Return even numbers only
+```
+
+In addition to asking for elements of a vector with the square bracket notation, we can ask a few other questions about vectors:
+
+```{r}
+my_vec <- seq(0, 100, 0.1)
+
+## Find out how long the vector is
+
+length(my_vec)
+
+## Show only the start of a vector
+
+head(my_vec)
+
+## Show only the end of a vector
+
+tail(my_vec)
+```
+
+Finally, you can give names to elements in your vector and subset by those:
+
+```{r}
+name_vec <- 5:9
+
+names(name_vec) <- c("a", "b", "c", "d", "e")
+
+name_vec
+
+name_vec["a"]
+
+name_vec[c("a", "b")]
+```
+
+```{r}
+###################
+### Challenge 9 ###
+###################
+
+# Given the following lines of code:
+
+x <- 1:5
+names(x) <- letters[1:5]
+x
+
+# Find at least five different commands to come up with the following subset:
+
+#  b  c  d
+#  2  3  4
+
+# Fictional bonus points for anyone who figures out the %in% operator!
+```
+
+## Lists
+
+While everything in a vector has to be the same data type, a list is a really useful data structure to know since you can fill it with anything.
+
+```{r}
+list_example <- list(1, "a", TRUE, 1+4i)
+list_example
+
+another_list <- list(title = "Research Bazaar", numbers = 1:10, data = TRUE )
+another_list
+```
+
+To subset a list we still use square bracket notation, but the syntax here can be confusing at first. Standard `[]` subsetting will return the specified element of a list as a list of one element rather than extracting the element itself. For example:
+
+```{r}
+another_list[1]
+```
+
+To extract the actual element of the list we need to use double bracket notation `[[]]` instead. Alternatively, in lists with named elements like this one you can call a specific list element by name with the `$` operator.
+
+```{r}
+another_list[[1]]
+
+another_list$title
+```
+
+When you extracted the element of a list with double square bracket notation you can further subset it like you would normally with single bracket notation e.g. `[[]][]`. 
+
+```{r}
+####################
+### Challenge 10 ###
+####################
+
+# Using the following code:
+
+challenge_list <- list(words = c("alpha", "beta", "gamma"),
+                       numbers = 1:10,
+                       letter = letters)
+
+challenge_list
+
+# Extract the following things:
+#   - The word "gamma"
+#   - The letters "a", "e", "i", "o", and "u"
+#   - The numbers less than or equal to 3
+
+# More fictional bonus points if you use a different methods!
+```
+
+## Data Frames
+
+Data frames are two-dimensional data structures and will probably be the most common one you use in your own analysis. Most functions for loading data into `R` from file (like `read.csv()`) will turn it into a `data.frame` by default.
+
+Let's start by making a toy dataset in your `data/` directory, called `feline.csv`. Copy the following lines of data, open a new text file in `RStudio` with `File > New File > Text File`, paste the data, and save it to the appropriate directory.
+
+```{r, eval=FALSE}
+coat,weight,likes_string
+calico,2.1,TRUE
+black,5.0,FALSE
+tabby,3.2,TRUE
+```
+
+We can load this into `R` via the following:
+
+```{r}
+cats <- read.csv(file = "data/feline-data.csv")
+cats
+```
+
+Each column in a data frame is a vector (same data type), and each row is a list (different data types). We can look at the structure of a data frame using the `str()` function.
+
+```{r}
+str(cats)
+```
+
+We can begin exploring our dataset right away, pulling out columns and rows or combinations thereof. To extract a single column from the data you use the `$` operator with this syntax `data_name$column_name`.
+
+```{r}
+cats$weight
+```
+
+Since a column is a vector we can further subset this with `[]`:
+
+```{r}
+## Just the first element of the weight column
+
+cats$weight[1]
+
+## Just the second element of the weight column
+
+cats$weight[2]
+
+## Add the two previous values together
+
+cats$weight[1] + cats$weight[2]
+```
+
+If we want to subset the full `cats` dataset then we need to specify the element/s we want to extract in two dimensions (rows and columns, in that order). This uses the following square bracket syntax `[row_id, column_id]`. If you want to subset in one dimension only and keep all of the other (e.g. first row of every column) then you just keep one dimension empty in the square brackets e.g. `[row_id, ]`. For example:
+
+```{r}
+## Extract the first row
+
+cats[1, ]
+
+## Extract the second column
+
+cats[ , 2]
+
+## Extract the value for the second row in the third column
+
+cats[2, 3]
+```
+
+To highlight the difference vectors and lists, lets try and add a new row of data to the `cats` data frame.
+
+```{r}
+garfield <- c("marmalade", 20, FALSE)
+garfield
+```
+
+If we create the new row as a vector then type coercion kicks in and we no longer have the data in the correct format! However, if we use a list:
+
+```{r}
+garfield <- list("marmalade", 20, FALSE)
+garfield
+```
+
+To add a new row to a data frame we can use the `rbind()` (row bind) function.
+
+```{r}
+cats2 <- rbind(cats, garfield)
+```
+
+But now why didn't this work?
+
+<hr class="single">
+
+## Factors
+
+Another important data structure is called a **factor**. Factors usually *look* like character data but are *stored* as integers with a look-up table. They are important for representing categorical information for statistical analysis. Lets take a closer look at the `coat` column using `str()`:
+
+```{r echo=FALSE}
+cats <- read.csv("data/feline.csv")
+```
+
+```{r}
+str(cats$coat)
+```
+
+Factors make use of a look-up table to convert the numbers back to characters. In this case every `1` refers to `"calico"`. This means that you can't add new data that doesn't match the existing factor levels because `R` doesn't understand how to handle to data. It only knows what values correspond to 1,2, and 3. `"marmalade"` could be anything else! To get passed this we need to tell `R` that we want an extra factor level called `"marmalade"`, and we do this with the `levels()` command.
+
+```{r}
+# Existing levels
+
+levels(cats$coat)
+
+# Lets add a new level
+
+levels(cats$coat) <- c(levels(cats$coat), "marmalade")
+
+# Now lets see the new levels
+
+levels(cats$coat)
+```
+
+While factors are essential for statistical modelling they can't be a nuisance in other instances. `R` will load all character data as factors by default, but we can tell it not to.
+
+```{r}
+####################
+### Challenge 11 ###
+####################
+
+# Look thorugh the help file for the read.csv() command to find an argument to stop character data from being loaded as factors. Hint: Characters are sometimes referred to as strings.
+
+# Reload the cats data frame from file without factors
+
+# Add the new row of Garfield data to the data frame
+```
+
+<hr class="single">
+
+```{r}
+####################
+### Challenge 12 ###
+####################
+
+# Create a list of length two containing a character vector for each of the sections in this part of the workshop:
+
+# - Data types
+# - Data structures
+
+# Populate each character vector with the names of the data types and data structures we've seen so far.
+```
