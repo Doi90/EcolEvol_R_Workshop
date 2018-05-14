@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="data-in-r.html">
+<link rel="next" href="data-visualisation.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="lodestar.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Ecology and Evolution Beginner's R Workshop</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preamble</a></li>
+<li class="chapter" data-level="2" data-path="technical-requirements.html"><a href="technical-requirements.html"><i class="fa fa-check"></i><b>2</b> Technical Requirements</a></li>
+<li class="chapter" data-level="3" data-path="r-vs-rstudio.html"><a href="r-vs-rstudio.html"><i class="fa fa-check"></i><b>3</b> R vs RStudio</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-vs-rstudio.html"><a href="r-vs-rstudio.html#r-vs-rstudio-1"><i class="fa fa-check"></i><b>3.1</b> R vs RStudio</a></li>
+<li class="chapter" data-level="3.2" data-path="r-vs-rstudio.html"><a href="r-vs-rstudio.html#r"><i class="fa fa-check"></i><b>3.2</b> R</a></li>
+<li class="chapter" data-level="3.3" data-path="r-vs-rstudio.html"><a href="r-vs-rstudio.html#rstudio"><i class="fa fa-check"></i><b>3.3</b> RStudio</a></li>
+<li class="chapter" data-level="3.4" data-path="r-vs-rstudio.html"><a href="r-vs-rstudio.html#work-flow-within-rstudio"><i class="fa fa-check"></i><b>3.4</b> Work flow within RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="project-set-up.html"><a href="project-set-up.html"><i class="fa fa-check"></i><b>4</b> Project Set-up</a><ul>
+<li class="chapter" data-level="4.1" data-path="project-set-up.html"><a href="project-set-up.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="project-set-up.html"><a href="project-set-up.html#directory-structures"><i class="fa fa-check"></i><b>4.2</b> Directory structures</a></li>
+<li class="chapter" data-level="4.3" data-path="project-set-up.html"><a href="project-set-up.html#r-projects"><i class="fa fa-check"></i><b>4.3</b> R Projects</a></li>
+<li class="chapter" data-level="4.4" data-path="project-set-up.html"><a href="project-set-up.html#code-script-structures"><i class="fa fa-check"></i><b>4.4</b> Code script structures</a></li>
+<li class="chapter" data-level="4.5" data-path="project-set-up.html"><a href="project-set-up.html#code-style-guides"><i class="fa fa-check"></i><b>4.5</b> Code style guides</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="basic-r.html"><a href="basic-r.html"><i class="fa fa-check"></i><b>5</b> Basic R</a><ul>
+<li class="chapter" data-level="5.1" data-path="basic-r.html"><a href="basic-r.html#using-r-as-a-calculator"><i class="fa fa-check"></i><b>5.1</b> Using R as a calculator</a></li>
+<li class="chapter" data-level="5.2" data-path="basic-r.html"><a href="basic-r.html#mathematical-functions"><i class="fa fa-check"></i><b>5.2</b> Mathematical functions</a></li>
+<li class="chapter" data-level="5.3" data-path="basic-r.html"><a href="basic-r.html#comparing-things"><i class="fa fa-check"></i><b>5.3</b> Comparing things</a></li>
+<li class="chapter" data-level="5.4" data-path="basic-r.html"><a href="basic-r.html#variables-and-assignment"><i class="fa fa-check"></i><b>5.4</b> Variables and assignment</a></li>
+<li class="chapter" data-level="5.5" data-path="basic-r.html"><a href="basic-r.html#vectorisation"><i class="fa fa-check"></i><b>5.5</b> Vectorisation</a></li>
+<li class="chapter" data-level="5.6" data-path="basic-r.html"><a href="basic-r.html#managing-your-environment"><i class="fa fa-check"></i><b>5.6</b> Managing your environment</a></li>
+<li class="chapter" data-level="5.7" data-path="basic-r.html"><a href="basic-r.html#r-packages"><i class="fa fa-check"></i><b>5.7</b> R Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="seeking-help.html"><a href="seeking-help.html"><i class="fa fa-check"></i><b>6</b> Seeking Help</a><ul>
+<li class="chapter" data-level="6.1" data-path="seeking-help.html"><a href="seeking-help.html#reading-help-files"><i class="fa fa-check"></i><b>6.1</b> Reading Help files</a></li>
+<li class="chapter" data-level="6.2" data-path="seeking-help.html"><a href="seeking-help.html#special-operators"><i class="fa fa-check"></i><b>6.2</b> Special Operators</a></li>
+<li class="chapter" data-level="6.3" data-path="seeking-help.html"><a href="seeking-help.html#getting-help-on-packages"><i class="fa fa-check"></i><b>6.3</b> Getting help on packages</a></li>
+<li class="chapter" data-level="6.4" data-path="seeking-help.html"><a href="seeking-help.html#when-you-kind-of-remember-the-function"><i class="fa fa-check"></i><b>6.4</b> When you kind of remember the function</a></li>
+<li class="chapter" data-level="6.5" data-path="seeking-help.html"><a href="seeking-help.html#when-you-have-no-idea-where-to-begin"><i class="fa fa-check"></i><b>6.5</b> When you have no idea where to begin</a></li>
+<li class="chapter" data-level="6.6" data-path="seeking-help.html"><a href="seeking-help.html#when-your-code-doesnt-work-seeking-help-from-your-peers"><i class="fa fa-check"></i><b>6.6</b> When your code doesn’t work: seeking help from your peers</a></li>
+<li class="chapter" data-level="6.7" data-path="seeking-help.html"><a href="seeking-help.html#other-ports-of-call"><i class="fa fa-check"></i><b>6.7</b> Other ports of call</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-in-r.html"><a href="data-in-r.html"><i class="fa fa-check"></i><b>7</b> Data in R</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-in-r.html"><a href="data-in-r.html#data-types"><i class="fa fa-check"></i><b>7.1</b> Data Types</a></li>
+<li class="chapter" data-level="7.2" data-path="data-in-r.html"><a href="data-in-r.html#type-coercion"><i class="fa fa-check"></i><b>7.2</b> Type Coercion</a></li>
+<li class="chapter" data-level="7.3" data-path="data-in-r.html"><a href="data-in-r.html#data-structures"><i class="fa fa-check"></i><b>7.3</b> Data Structures</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="data-in-r.html"><a href="data-in-r.html#vectors"><i class="fa fa-check"></i><b>7.3.1</b> Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="data-in-r.html"><a href="data-in-r.html#lists"><i class="fa fa-check"></i><b>7.4</b> Lists</a></li>
+<li class="chapter" data-level="7.5" data-path="data-in-r.html"><a href="data-in-r.html#data-frames"><i class="fa fa-check"></i><b>7.5</b> Data Frames</a></li>
+<li class="chapter" data-level="7.6" data-path="data-in-r.html"><a href="data-in-r.html#factors"><i class="fa fa-check"></i><b>7.6</b> Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-frame-manipulation.html"><a href="data-frame-manipulation.html"><i class="fa fa-check"></i><b>8</b> Data Frame Manipulation</a><ul>
+<li class="chapter" data-level="8.1" data-path="data-frame-manipulation.html"><a href="data-frame-manipulation.html#subsetting-data"><i class="fa fa-check"></i><b>8.1</b> Subsetting data</a></li>
+<li class="chapter" data-level="8.2" data-path="data-frame-manipulation.html"><a href="data-frame-manipulation.html#data-cleaning"><i class="fa fa-check"></i><b>8.2</b> Data Cleaning</a></li>
+<li class="chapter" data-level="8.3" data-path="data-frame-manipulation.html"><a href="data-frame-manipulation.html#logical-subsetting"><i class="fa fa-check"></i><b>8.3</b> Logical Subsetting</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="data-frame-manipulation.html"><a href="data-frame-manipulation.html#single-criteria"><i class="fa fa-check"></i><b>8.3.1</b> Single Criteria</a></li>
+<li class="chapter" data-level="8.3.2" data-path="data-frame-manipulation.html"><a href="data-frame-manipulation.html#multiple-criteria"><i class="fa fa-check"></i><b>8.3.2</b> Multiple Criteria</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>9</b> Data Visualisation</a><ul>
+<li class="chapter" data-level="9.1" data-path="data-visualisation.html"><a href="data-visualisation.html#creating-publication-quality-graphics"><i class="fa fa-check"></i><b>9.1</b> Creating publication quality graphics</a></li>
+<li class="chapter" data-level="9.2" data-path="data-visualisation.html"><a href="data-visualisation.html#grammar-of-graphics"><i class="fa fa-check"></i><b>9.2</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="9.3" data-path="data-visualisation.html"><a href="data-visualisation.html#layers"><i class="fa fa-check"></i><b>9.3</b> Layers</a></li>
+<li class="chapter" data-level="9.4" data-path="data-visualisation.html"><a href="data-visualisation.html#transformations-and-statistics"><i class="fa fa-check"></i><b>9.4</b> Transformations and statistics</a></li>
+<li class="chapter" data-level="9.5" data-path="data-visualisation.html"><a href="data-visualisation.html#multi-panel-figures"><i class="fa fa-check"></i><b>9.5</b> Multi-panel figures</a></li>
+<li class="chapter" data-level="9.6" data-path="data-visualisation.html"><a href="data-visualisation.html#further-customisation"><i class="fa fa-check"></i><b>9.6</b> Further Customisation</a></li>
+<li class="chapter" data-level="9.7" data-path="data-visualisation.html"><a href="data-visualisation.html#saving-plots"><i class="fa fa-check"></i><b>9.7</b> Saving Plots</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://nikkirubinstein.gitbooks.io/resguides-introductory-r-workshop/content/" target="blank"> Modified with permission from Research Platforms Services material</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-frame-manipulation" class="section level1">
+<h1><span class="header-section-number">8</span> Data Frame Manipulation</h1>
+<div id="subsetting-data" class="section level2">
+<h2><span class="header-section-number">8.1</span> Subsetting data</h2>
+<p><code>{r, include=FALSE} # Silently load in the data so the rest of the lesson works titanic &lt;- read.csv(&quot;https://goo.gl/4Gqsnz&quot;, header=TRUE)</code></p>
+<p>Data frames are arguably the most common data structure you will work with in R for data analysis. We have previously covered some simple subsetting methods using <code>$</code> and <code>[ , ]</code> for extraction of specific elements, but what if we’re only after elements that meet a set criteria? Trees above a certain height, species from a limited subset of taxa, only data points with no missing values?</p>
+<p>These are all types of logical subsetting. <code>R</code> generates a vector of <code>TRUE</code> and <code>FALSE</code> values based on your set criteria and only returns that elements of your data frame that correspond to <code>TRUE</code> values.</p>
+<p>For this section of the course we will be using a dataset about the passengers on the titanic. It is found online and you can download it with the following code:</p>
+<pre class="{r}"><code>titanic &lt;- read.csv(&quot;https://goo.gl/4Gqsnz&quot;, header=TRUE)</code></pre>
+</div>
+<div id="data-cleaning" class="section level2">
+<h2><span class="header-section-number">8.2</span> Data Cleaning</h2>
+<p>One of the first steps of analysing a dataset is cleaning it up. As far as subsetting goes, it is often important to remove incomplete rows of data. Some times a particular observation is missing a measurement of a variable and this can cause issues:</p>
+<pre class="{r}"><code>## Calculate the average age of passengers on the Titanic
+
+mean(titanic$Age)
+
+## Check for missing values
+
+anyNA(titanic$Age)</code></pre>
+<p>Here, we can’t calculate the average age of passengers on the titanic because we don’t know the age of some passengers. Several summary statistic functions in <code>R</code> have a <code>na.rm</code> argument that lets you ignore <code>NA</code> values when performing the calculation:</p>
+<pre class="{r}"><code>mean(titanic$Age, na.rm = TRUE)
+
+mean(titanic$Survived, na.rm = TRUE)</code></pre>
+<p>But the two values above can’t be fairly used in conjunction with each other. Why is that?</p>
+<p>Well it turns out that while we don’t know the age of some of the passengers, we do know if each of them survived. This means we are summarising values from different data sets: the survival rate of <em>all</em> passengers, and the mean age of passengers <em>with known ages</em>. Unless the missing values have an identical distribution to the known values their absence will change the mean value. What if all of the unknowns are children? What if they are all &gt;50?</p>
+<p>This may seem somewhat trivial here, but if you are performing more elaborate statistical analyses like fitting linear models then it is crucial to ensure your datasets are identical. Models fit to two different datasets cannot be directly compared with model evaluation statistics like AIC, R<sup>2</sup>, AUC, etc. You can usually supply datasets with <code>NA</code>s to model fitting functoins in <code>R</code> but they will automatically drop rows with missing values <strong>for covariates included in the model only</strong>. This means that two models fit to the same data frame with different covariate combinations can actually be fit to different datasets and no longer comparable for model selection.</p>
+<p>They key to avoiding this pitfall is to remove all <code>NA</code> values in advance. Conveniently, <code>R</code> makes this easy with the <code>na.omit()</code> function. Lets create a new data frame that is a version of <code>titanic</code> without missing values:</p>
+<pre class="{r}"><code>titanic_clean &lt;- na.omit(titanic)</code></pre>
+</div>
+<div id="logical-subsetting" class="section level2">
+<h2><span class="header-section-number">8.3</span> Logical Subsetting</h2>
+<div id="single-criteria" class="section level3">
+<h3><span class="header-section-number">8.3.1</span> Single Criteria</h3>
+<p>You will often want to subset your data frame such that you only keep values that meet a certain criteria:</p>
+<ul>
+<li>Only observations for a certain species</li>
+<li>Only observations for all species <em>except</em> a certian species</li>
+<li>Only observations for a specific geographic region</li>
+<li>Only observations for specific gene locus</li>
+</ul>
+<p>This is achieved by suppling a logical test in place of a particular index inside the <code>[ , ]</code> notation. This is going to be the subsetting of rows by values in a single column, so we put our logical test on the left of the <code>,</code> in <code>[ , ]</code>. Lets say we only want to keep the passengers who paid less than ten pounds for their ticket:</p>
+<pre class="{r}"><code>titanic_cheap &lt;- titanic_clean[titanic_clean$Fare &lt; 10, ]
+
+dim(titanic_cheap)</code></pre>
+<p>Here we have kept only the rows where the <code>Fare</code> column was &lt; 10, and kept all columns (by leaving the column section blank). This reduced our dataset to a subset of only 236 passengers.</p>
+<pre class="{r}"><code>####################
+### Challenge 13 ###
+####################
+
+# Create a new data frame called titanic_35 that includes only the passengers aged 35 or under.</code></pre>
+</div>
+<div id="multiple-criteria" class="section level3">
+<h3><span class="header-section-number">8.3.2</span> Multiple Criteria</h3>
+<p>There are many situations in which you will wish to combine multiple logical criteria.</p>
+<ul>
+<li>All ecoregions that occur North of a certain latitude <strong>and</strong> West of a certain longitude</li>
+<li>All species that are mammals <strong>or</strong> birds <strong>and</strong> occur in Victoria</li>
+<li>All gene loci identified with gene markers longer than X <strong>and</strong> less than Y</li>
+</ul>
+<p>To do this we can just combine multiple logical tests in <code>R</code> using the <em>AND</em> <code>&amp;</code> and <em>OR</em> <code>|</code> operators.</p>
+<ul>
+<li><code>&amp;</code> returns <code>TRUE</code> if both the left and right are <code>TRUE</code>.</li>
+<li><code>|</code> returns <code>TRUE</code> if either the left or right (or both) are <code>TRUE</code>.</li>
+</ul>
+<p>You may sometimes see <code>&amp;&amp;</code> and <code>||</code> instead of <code>&amp;</code> and <code>|</code>. These operators only look at the first element of each vector and ignore the remaining elements. These operators are mainly used in programming, rather than data analysis and you can comfortably ignore them.</p>
+<p>We supply multiple criteria tests to the <code>[ , ]</code> notation in this format: <code>&lt;logical test&gt; &amp;/| &lt;logical test&gt;</code>. For example, lets keep only the passengers that were in first class and paid more than two hundred pounds for their ticket:</p>
+<pre class="{r}"><code>titanic_rich &lt;- titanic_clean[titanic_clean$Pclass == 1 &amp; titanic_clean$Fare &gt; 200, ]
+
+dim(titanic_rich)</code></pre>
+<p>Only eighteen pasengers!</p>
+<pre class="{r}"><code>####################
+### Challenge 14 ###
+####################
+
+# Create a new data frame that includes only the passengers aged &lt; 18 or &gt;= 50.</code></pre>
+<pre class="{r}"><code>####################
+### Challenge 15 ###
+####################
+
+# Create a new data frame that includes only female, third class passengers.</code></pre>
+<pre class="{r}"><code>####################
+### Challenge 16 ###
+####################
+
+# Create a new data frame that includes only male passengers aged either 18, 23, 31, or 46.
+
+# Hint: Rememberthe %in% operator!</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-visualisation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true,
+"search": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>
