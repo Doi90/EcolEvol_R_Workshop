@@ -1,14 +1,13 @@
-output:
-  bookdown::gitbook:
-    css: lodestar.css
-    split_by: chapter
-    config:
-      toc:
-        before: |
-          <li><a href="./">Ecology and Evolution Beginner's R Workshop</a></li>
-        after: |
-          <li><a href="https://nikkirubinstein.gitbooks.io/resguides-introductory-r-workshop/content/" target="blank"> Modified with permission from Research Platforms Services material</a></li>
-          <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-        collapse: subsection
-        scroll_highlight: yes
-        search: yes
+bookdown::gitbook:
+  css: lodestar.css
+  split_by: chapter
+  config:
+    toc:
+      before: |
+        <li><a href="./">Ecology and Evolution Beginner's R Workshop</a></li>
+      after: |
+        <li><a href="https://nikkirubinstein.gitbooks.io/resguides-introductory-r-workshop/content/" target="blank"> Modified with permission from Research Platforms Services material</a></li>
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+      collapse: subsection
+      scroll_highlight: yes
+      search: yes
