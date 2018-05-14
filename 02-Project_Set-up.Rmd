@@ -28,12 +28,12 @@ An example directory structure (for a `MyProject` root directory) might include 
 +  An `output` folder to store any type of intermediate or output files. This could include model objects, simulations, etc. Some people prefer to store their cleaned data here instead of in a sub-directory of `data`
 + A `scripts` folder to store the code scripts used in the analysis
 
-```{r eval=FALSE}
+```{r}
 ###################
 ### Challenge 1 ###
 ###################
 
-#Build your own project directory structure for this workshop. For our purposes today you will require at least a `data`, `scripts`, and `images` folder
+# Build your own project directory structure for this workshop. For our purposes today you will require at least a `data`, `scripts`, and `images` folder
 ```
 
 <hr class="small">

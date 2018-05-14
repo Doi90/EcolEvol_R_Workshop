@@ -145,22 +145,22 @@ ggplot(data = titanic_clean,
 
 Now we're at the point where we have a layer of the graph whose aesthetic characteristics are partially independent of the other layers: `geom_smooth()`. It has inherited the *global options* set by `aes()` in the `ggplot()` layer, but we can also change *local options* that only apply to the aesthetics of this layer. Depending on the layer in question these *local options* may be controlled with another `aes()` function and/or just with arguments to the function. 
 
-```{r eval=FALSE}
+```{r}
 ####################
 ### Challenge 18 ###
 ####################
 
 # Using the following base code:
 
-ggplot(data = titanic_clean,
-       aes(x = Age,
-           y = Fare,
-           col = as.factor(Pclass))) +
-  geom_point() +
-  geom_smooth(method = "lm") +
-  scale_y_log10()
+# ggplot(data = titanic_clean,
+#        aes(x = Age,
+#            y = Fare,
+#            col = as.factor(Pclass))) +
+#   geom_point() +
+#   geom_smooth(method = "lm") +
+#   scale_y_log10()
 
-# Experiment with the additional options you can use to customise the `geom_oint()` and `geom_smooth()` layer. There is no set challenge, just experiment with different options. Consider changing the point/line size, transparency, linetype, etc
+# Experiment with the additional options you can use to customise the `geom_oint()` and `geom_smooth()` layer. There is no set challenge, just experiment with different options. Consider changing the point/line size, transparency, linetype, etc.
 ```
 
 ## Multi-panel figures
@@ -310,7 +310,7 @@ my_plot
 dev.off()
 ```
 
-```{r eval=FALSE}
+```{r}
 ####################
 ### Challenge 19 ###
 ####################

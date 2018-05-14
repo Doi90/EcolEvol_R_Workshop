@@ -164,9 +164,9 @@ name_vec[c("a", "b")]
 
 # Given the following lines of code:
 
-x <- 1:5
-names(x) <- letters[1:5]
-x
+# x <- 1:5
+# names(x) <- letters[1:5]
+# x
 
 # Find at least five different commands to come up with the following subset:
 
@@ -211,11 +211,11 @@ When you extracted the element of a list with double square bracket notation you
 
 # Using the following code:
 
-challenge_list <- list(words = c("alpha", "beta", "gamma"),
-                       numbers = 1:10,
-                       letter = letters)
+# challenge_list <- list(words = c("alpha", "beta", "gamma"),
+#                        numbers = 1:10,
+#                        letter = letters)
 
-challenge_list
+# challenge_list
 
 # Extract the following things:
 #   - The word "gamma"

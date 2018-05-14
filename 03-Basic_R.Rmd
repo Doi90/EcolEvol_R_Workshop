@@ -156,7 +156,7 @@ x <- 100
 Assignment values can contain the variable being assigned to:
 
 ```{r}
-x <- x + 1 #notice how RStudio updates its description of x on the top right tab
+x <- x + 1 # notice how RStudio updates its description of x on the top right tab
 ```
 
 The right hand side of the assignment can be any valid `R` expression. The right hand side is *fully evaluated* before the assignment occurs.
@@ -270,7 +270,7 @@ It is possible to add functions to `R` by writing a package, or by obtaining a p
 ### Challenge 6 ###
 ###################
 
-#Clean up your working environment by deleting the mass and age variables.
+# Clean up your working environment by deleting the mass and age variables.
 ```
 
 ```{r}

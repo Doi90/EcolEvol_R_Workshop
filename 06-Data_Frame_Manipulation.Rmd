@@ -128,5 +128,5 @@ Only eighteen pasengers!
 
 # Create a new data frame that includes only male passengers aged either 18, 23, 31, or 46.
 
-# Hiint: Rememberthe %in% operator!
+# Hint: Rememberthe %in% operator!
 ```
