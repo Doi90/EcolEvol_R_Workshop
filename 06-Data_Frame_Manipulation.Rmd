@@ -2,11 +2,6 @@
 
 ## Subsetting data
 
-```{r, include=FALSE}
-# Silently load in the data so the rest of the lesson works
-titanic <- read.csv("https://goo.gl/4Gqsnz", header=TRUE)
-```
-
 Data frames are arguably the most common data structure you will work with in R for data analysis. We have previously covered some simple subsetting methods using `$` and `[ , ]` for extraction of specific elements, but what if we're only after elements that meet a set criteria? Trees above a certain height, species from a limited subset of taxa, only data points with no missing values?
 
 These are all types of logical subsetting. `R` generates a vector of `TRUE` and `FALSE` values based on your set criteria and only returns that elements of your data frame that correspond to `TRUE` values.

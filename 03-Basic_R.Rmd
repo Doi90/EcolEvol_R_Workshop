@@ -1,13 +1,13 @@
-# Basic R
+# Basic `R`
 
 <hr class="double">
 
-## Using R as a calculator
+## Using `R` as a calculator
 
-The simplest thing you could do with R is do arithmetic:
+The simplest thing you could do with `R` is do arithmetic:
 
 ```{r}
-1 + 100
+1 + 2
 ```
 
 If you type in an incomplete command, `R` will wait for you to complete it. If the symbol to the left of the bottom line in the console is `>` then `R` is ready to accept a new command, while a `+` means it is waiting for you to finsh the previous command.
