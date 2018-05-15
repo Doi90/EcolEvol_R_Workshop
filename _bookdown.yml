@@ -1,4 +1,4 @@
-book_filename: "Ecology and Evolution PhD Program Beginner's R Workshop.md"
+book_filename: "Ecology_and_Evolution_PhD_Program_Beginners_R_Workshop.Rmd"
 author: "David Wilkinson"
 date: "`r Sys.Date()`"
 documentclass: book

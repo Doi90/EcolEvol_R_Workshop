@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Ecology and Evolution PhD Program Beginner’s R Workshop</title>
-  <meta name="description" content="Ecology and Evolution PhD Program Beginner’s R Workshop">
+  <title>Ecology and Evolution PhD Program Beginner R Workshop</title>
+  <meta name="description" content="Ecology and Evolution PhD Program Beginner R Workshop">
   <meta name="generator" content="bookdown 0.7.10 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Ecology and Evolution PhD Program Beginner’s R Workshop" />
+  <meta property="og:title" content="Ecology and Evolution PhD Program Beginner R Workshop" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="Doi90/EcolEvol_R_Workshop" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Ecology and Evolution PhD Program Beginner’s R Workshop" />
+  <meta name="twitter:title" content="Ecology and Evolution PhD Program Beginner R Workshop" />
   
   
   
@@ -48,8 +48,45 @@
 
 
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
 
-<link rel="stylesheet" href="docs\lodestar.css" type="text/css" />
+<link rel="stylesheet" href="lodestar.css" type="text/css" />
 </head>
 
 <body>
@@ -138,7 +175,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ecology and Evolution PhD Program Beginner’s R Workshop</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ecology and Evolution PhD Program Beginner R Workshop</a>
           </h1>
         </div>
 
@@ -161,11 +198,16 @@
 <li>character: These are strings of text e.g. <code>word</code> or <code>this is a sentence</code>. When specifying these in <code>R</code> they need be be enclosed in quotation marks like <code>&quot;word&quot;</code> or <code>'word'</code>.</li>
 </ul>
 <p>We can find the type of data something is stored as in <code>R</code> with the <code>typeof()</code> function, but for the majority of purposes it is better to know the <em>class</em> of data as that is the usual way <code>R</code> will communicate it to you. To do this we use the <code>class()</code> function:</p>
-<pre class="{r}"><code>class(3.14)
-class(1L)
-class(1+1i)
-class(TRUE)
-class(&#39;banana&#39;)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="fl">3.14</span>)</code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(1L)</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="dv">1</span><span class="op">+</span>1i)</code></pre></div>
+<pre><code>## [1] &quot;complex&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(<span class="st">&#39;banana&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
 <hr class="single">
 </div>
 <div id="type-coercion" class="section level2">
@@ -175,22 +217,24 @@ class(&#39;banana&#39;)</code></pre>
 <strong>logical &gt; integer &gt; numeric &gt; complex &gt; character</strong>
 </center>
 <p>A vector in <code>R</code> is essentially just an ordered list of things, with the special condition that <em>everything in the vector must be the same basic data type</em>. We can create a vector of values using the <code>c()</code> function:</p>
-<pre class="{r}"><code>my_vec &lt;- c(2,6,3)
-my_vec</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">3</span>)
+my_vec</code></pre></div>
+<pre><code>## [1] 2 6 3</code></pre>
 <p>Given what we’ve learned so far, what do you think the following will produce?</p>
-<pre class="{r}"><code>vec1 &lt;- c(2,6,&#39;3&#39;)
-vec2 &lt;- c(&quot;apple&quot;, 2.1, TRUE)
-vec3 &lt;- c(2, 2.0, 2L)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">6</span>,<span class="st">&#39;3&#39;</span>)
+vec2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="fl">2.1</span>, <span class="ot">TRUE</span>)
+vec3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="fl">2.0</span>, 2L)</code></pre></div>
 <p>You can try to force coercion against this flow using the <code>as.*()</code> functions. Not everything is possible, but it useful to remember for if data is read in incorrectly by <code>R</code> (like numerics as a character string).</p>
-<pre class="{r}"><code>as.numeric(c(&#39;0&#39;,&#39;2&#39;,&#39;4&#39;))
-
-as.logical(1)
-
-as.logical(0)
-
-as.logical(-0.5)
-
-as.logical(&quot;house&quot;)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.numeric</span>(<span class="kw">c</span>(<span class="st">&#39;0&#39;</span>,<span class="st">&#39;2&#39;</span>,<span class="st">&#39;4&#39;</span>))</code></pre></div>
+<pre><code>## [1] 0 2 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="dv">0</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="op">-</span><span class="fl">0.5</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.logical</span>(<span class="st">&quot;house&quot;</span>)</code></pre></div>
+<pre><code>## [1] NA</code></pre>
 <p>As you can see, some surprising things can happen when <code>R</code> forces one basic data type into another! Nitty-gritty of type coercion aside, the point is: if your data doesn’t look like what you thought it was going to look like, type coercion may well be to blame.</p>
 <hr class="single">
 </div>
@@ -206,195 +250,259 @@ as.logical(&quot;house&quot;)</code></pre>
 <h3><span class="header-section-number">7.3.1</span> Vectors</h3>
 <p>We’ve alredy covered how to create a basic vector, so now we will cover how to manipulate the vector.</p>
 <p>The <code>c()</code> function can also append things to an existing vector:</p>
-<pre class="{r}"><code>ab_vector &lt;- c(&#39;a&#39;, &#39;b&#39;)
-ab_vector
-
-concat_example &lt;- c(ab_vector, &#39;SWC&#39;)
-concat_example</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ab_vector &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>)
+ab_vector</code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">concat_example &lt;-<span class="st"> </span><span class="kw">c</span>(ab_vector, <span class="st">&#39;SWC&#39;</span>)
+concat_example</code></pre></div>
+<pre><code>## [1] &quot;a&quot;   &quot;b&quot;   &quot;SWC&quot;</code></pre>
 <p>You can also create vectors of a series of numbers using more efficient methods. The <code>:</code> operator creates a vector of numbers from the first number to the second number by steps of 1.</p>
-<pre class="{r}"><code>1:10
-
-1.1:9.9</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">1.1</span><span class="op">:</span><span class="fl">9.9</span></code></pre></div>
+<pre><code>## [1] 1.1 2.1 3.1 4.1 5.1 6.1 7.1 8.1 9.1</code></pre>
 <p>The <code>seq()</code> function lets you create a sequence of numbers with a specified step value:</p>
-<pre class="{r}"><code>seq(from = 1,
-    to = 10,
-    by=0.1)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>,
+    <span class="dt">to =</span> <span class="dv">10</span>,
+    <span class="dt">by=</span><span class="fl">0.1</span>)</code></pre></div>
+<pre><code>##  [1]  1.0  1.1  1.2  1.3  1.4  1.5  1.6  1.7  1.8  1.9  2.0  2.1  2.2  2.3
+## [15]  2.4  2.5  2.6  2.7  2.8  2.9  3.0  3.1  3.2  3.3  3.4  3.5  3.6  3.7
+## [29]  3.8  3.9  4.0  4.1  4.2  4.3  4.4  4.5  4.6  4.7  4.8  4.9  5.0  5.1
+## [43]  5.2  5.3  5.4  5.5  5.6  5.7  5.8  5.9  6.0  6.1  6.2  6.3  6.4  6.5
+## [57]  6.6  6.7  6.8  6.9  7.0  7.1  7.2  7.3  7.4  7.5  7.6  7.7  7.8  7.9
+## [71]  8.0  8.1  8.2  8.3  8.4  8.5  8.6  8.7  8.8  8.9  9.0  9.1  9.2  9.3
+## [85]  9.4  9.5  9.6  9.7  9.8  9.9 10.0</code></pre>
 <div id="vector-subsetting" class="section level4">
 <h4><span class="header-section-number">7.3.1.1</span> Vector Subsetting</h4>
 <p>To subset a vector we use what is known as square bracket notation <code>[]</code>. The individual elements in a vector are ordered, so we can call for specific elements directly by placing the index inside <code>[]</code>.</p>
-<pre class="{r}"><code>my_vec &lt;- c(1,3,5,6,10)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">10</span>)
 
-my_vec[3]
-
-my_vec[c(2,4)]</code></pre>
+my_vec[<span class="dv">3</span>]</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_vec[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)]</code></pre></div>
+<pre><code>## [1] 3 6</code></pre>
 <p>Instead of asking for specific elements of a vector by index you can ask <code>R</code> to return any values that meet a specific criteria. We do this by placing a logical/boolean test in <code>[]</code> in place of an index.</p>
-<pre class="{r}"><code>my_vec &lt;- 1:10
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_vec &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
 
-my_vec[my_vec &gt; 8]  # Return values &gt; 8
-
-my_vec[my_vec %% 2 == 0] # Return even numbers only</code></pre>
+my_vec[my_vec <span class="op">&gt;</span><span class="st"> </span><span class="dv">8</span>]  <span class="co"># Return values &gt; 8</span></code></pre></div>
+<pre><code>## [1]  9 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_vec[my_vec <span class="op">%%</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>] <span class="co"># Return even numbers only</span></code></pre></div>
+<pre><code>## [1]  2  4  6  8 10</code></pre>
 <p>In addition to asking for elements of a vector with the square bracket notation, we can ask a few other questions about vectors:</p>
-<pre class="{r}"><code>my_vec &lt;- seq(0, 100, 0.1)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_vec &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="fl">0.1</span>)
 
 ## Find out how long the vector is
 
-length(my_vec)
+<span class="kw">length</span>(my_vec)</code></pre></div>
+<pre><code>## [1] 1001</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Show only the start of a vector
 
-## Show only the start of a vector
+<span class="kw">head</span>(my_vec)</code></pre></div>
+<pre><code>## [1] 0.0 0.1 0.2 0.3 0.4 0.5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Show only the end of a vector
 
-head(my_vec)
-
-## Show only the end of a vector
-
-tail(my_vec)</code></pre>
+<span class="kw">tail</span>(my_vec)</code></pre></div>
+<pre><code>## [1]  99.5  99.6  99.7  99.8  99.9 100.0</code></pre>
 <p>Finally, you can give names to elements in your vector and subset by those:</p>
-<pre class="{r}"><code>name_vec &lt;- 5:9
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">name_vec &lt;-<span class="st"> </span><span class="dv">5</span><span class="op">:</span><span class="dv">9</span>
 
-names(name_vec) &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;)
+<span class="kw">names</span>(name_vec) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>)
 
-name_vec
-
-name_vec[&quot;a&quot;]
-
-name_vec[c(&quot;a&quot;, &quot;b&quot;)]</code></pre>
-<pre class="{r}"><code>###################
-### Challenge 9 ###
+name_vec</code></pre></div>
+<pre><code>## a b c d e 
+## 5 6 7 8 9</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">name_vec[<span class="st">&quot;a&quot;</span>]</code></pre></div>
+<pre><code>## a 
+## 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">name_vec[<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>)]</code></pre></div>
+<pre><code>## a b 
+## 5 6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">###################
+### Challenge 9 <span class="al">###</span>
 ###################
 
-# Given the following lines of code:
+<span class="co"># Given the following lines of code:</span>
 
-# x &lt;- 1:5
-# names(x) &lt;- letters[1:5]
-# x
+<span class="co"># x &lt;- 1:5</span>
+<span class="co"># names(x) &lt;- letters[1:5]</span>
+<span class="co"># x</span>
 
-# Find at least five different commands to come up with the following subset:
+<span class="co"># Find at least five different commands to come up with the following subset:</span>
 
-#  b  c  d
-#  2  3  4
+<span class="co">#  b  c  d</span>
+<span class="co">#  2  3  4</span>
 
-# Fictional bonus points for anyone who figures out the %in% operator!</code></pre>
+<span class="co"># Fictional bonus points for anyone who figures out the %in% operator!</span></code></pre></div>
 </div>
 </div>
 </div>
 <div id="lists" class="section level2">
 <h2><span class="header-section-number">7.4</span> Lists</h2>
 <p>While everything in a vector has to be the same data type, a list is a really useful data structure to know since you can fill it with anything.</p>
-<pre class="{r}"><code>list_example &lt;- list(1, &quot;a&quot;, TRUE, 1+4i)
-list_example
-
-another_list &lt;- list(title = &quot;Research Bazaar&quot;, numbers = 1:10, data = TRUE )
-another_list</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">list_example &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">1</span>, <span class="st">&quot;a&quot;</span>, <span class="ot">TRUE</span>, <span class="dv">1</span><span class="op">+</span>4i)
+list_example</code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] &quot;a&quot;
+## 
+## [[3]]
+## [1] TRUE
+## 
+## [[4]]
+## [1] 1+4i</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">another_list &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">title =</span> <span class="st">&quot;Research Bazaar&quot;</span>, <span class="dt">numbers =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">data =</span> <span class="ot">TRUE</span> )
+another_list</code></pre></div>
+<pre><code>## $title
+## [1] &quot;Research Bazaar&quot;
+## 
+## $numbers
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## $data
+## [1] TRUE</code></pre>
 <p>To subset a list we still use square bracket notation, but the syntax here can be confusing at first. Standard <code>[]</code> subsetting will return the specified element of a list as a list of one element rather than extracting the element itself. For example:</p>
-<pre class="{r}"><code>another_list[1]</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">another_list[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## $title
+## [1] &quot;Research Bazaar&quot;</code></pre>
 <p>To extract the actual element of the list we need to use double bracket notation <code>[[]]</code> instead. Alternatively, in lists with named elements like this one you can call a specific list element by name with the <code>$</code> operator.</p>
-<pre class="{r}"><code>another_list[[1]]
-
-another_list$title</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">another_list[[<span class="dv">1</span>]]</code></pre></div>
+<pre><code>## [1] &quot;Research Bazaar&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">another_list<span class="op">$</span>title</code></pre></div>
+<pre><code>## [1] &quot;Research Bazaar&quot;</code></pre>
 <p>When you extracted the element of a list with double square bracket notation you can further subset it like you would normally with single bracket notation e.g. <code>[[]][]</code>.</p>
-<pre class="{r}"><code>####################
-### Challenge 10 ###
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">####################
+### Challenge 10 <span class="al">###</span>
 ####################
 
-# Using the following code:
+<span class="co"># Using the following code:</span>
 
-# challenge_list &lt;- list(words = c(&quot;alpha&quot;, &quot;beta&quot;, &quot;gamma&quot;),
-#                        numbers = 1:10,
-#                        letter = letters)
+<span class="co"># challenge_list &lt;- list(words = c(&quot;alpha&quot;, &quot;beta&quot;, &quot;gamma&quot;),</span>
+<span class="co">#                        numbers = 1:10,</span>
+<span class="co">#                        letter = letters)</span>
 
-# challenge_list
+<span class="co"># challenge_list</span>
 
-# Extract the following things:
-#   - The word &quot;gamma&quot;
-#   - The letters &quot;a&quot;, &quot;e&quot;, &quot;i&quot;, &quot;o&quot;, and &quot;u&quot;
-#   - The numbers less than or equal to 3
+<span class="co"># Extract the following things:</span>
+<span class="co">#   - The word &quot;gamma&quot;</span>
+<span class="co">#   - The letters &quot;a&quot;, &quot;e&quot;, &quot;i&quot;, &quot;o&quot;, and &quot;u&quot;</span>
+<span class="co">#   - The numbers less than or equal to 3</span>
 
-# More fictional bonus points if you use a different methods!</code></pre>
+<span class="co"># More fictional bonus points if you use a different methods!</span></code></pre></div>
 </div>
 <div id="data-frames" class="section level2">
 <h2><span class="header-section-number">7.5</span> Data Frames</h2>
 <p>Data frames are two-dimensional data structures and will probably be the most common one you use in your own analysis. Most functions for loading data into <code>R</code> from file (like <code>read.csv()</code>) will turn it into a <code>data.frame</code> by default.</p>
 <p>Let’s start by making a toy dataset in your <code>data/</code> directory, called <code>feline.csv</code>. Copy the following lines of data, open a new text file in <code>RStudio</code> with <code>File &gt; New File &gt; Text File</code>, paste the data, and save it to the appropriate directory.</p>
-<p><code>{r, eval=FALSE} coat,weight,likes_string calico,2.1,TRUE black,5.0,FALSE tabby,3.2,TRUE</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">coat,weight,likes_string
+calico,<span class="fl">2.1</span>,<span class="ot">TRUE</span>
+black,<span class="fl">5.0</span>,<span class="ot">FALSE</span>
+tabby,<span class="fl">3.2</span>,<span class="ot">TRUE</span></code></pre></div>
 <p>We can load this into <code>R</code> via the following:</p>
-<pre class="{r}"><code>cats &lt;- read.csv(file = &quot;data/feline-data.csv&quot;)
-cats</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cats &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;data/feline.csv&quot;</span>)
+cats</code></pre></div>
+<pre><code>##     coat weight likes_string
+## 1 calico    2.1         TRUE
+## 2  black    5.0        FALSE
+## 3  tabby    3.2         TRUE</code></pre>
 <p>Each column in a data frame is a vector (same data type), and each row is a list (different data types). We can look at the structure of a data frame using the <code>str()</code> function.</p>
-<pre class="{r}"><code>str(cats)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(cats)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    3 obs. of  3 variables:
+##  $ coat        : Factor w/ 3 levels &quot;black&quot;,&quot;calico&quot;,..: 2 1 3
+##  $ weight      : num  2.1 5 3.2
+##  $ likes_string: logi  TRUE FALSE TRUE</code></pre>
 <p>We can begin exploring our dataset right away, pulling out columns and rows or combinations thereof. To extract a single column from the data you use the <code>$</code> operator with this syntax <code>data_name$column_name</code>.</p>
-<pre class="{r}"><code>cats$weight</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cats<span class="op">$</span>weight</code></pre></div>
+<pre><code>## [1] 2.1 5.0 3.2</code></pre>
 <p>Since a column is a vector we can further subset this with <code>[]</code>:</p>
-<pre class="{r}"><code>## Just the first element of the weight column
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Just the first element of the weight column
 
-cats$weight[1]
+cats<span class="op">$</span>weight[<span class="dv">1</span>]</code></pre></div>
+<pre><code>## [1] 2.1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Just the second element of the weight column
 
-## Just the second element of the weight column
+cats<span class="op">$</span>weight[<span class="dv">2</span>]</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Add the two previous values together
 
-cats$weight[2]
-
-## Add the two previous values together
-
-cats$weight[1] + cats$weight[2]</code></pre>
+cats<span class="op">$</span>weight[<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>cats<span class="op">$</span>weight[<span class="dv">2</span>]</code></pre></div>
+<pre><code>## [1] 7.1</code></pre>
 <p>If we want to subset the full <code>cats</code> dataset then we need to specify the element/s we want to extract in two dimensions (rows and columns, in that order). This uses the following square bracket syntax <code>[row_id, column_id]</code>. If you want to subset in one dimension only and keep all of the other (e.g. first row of every column) then you just keep one dimension empty in the square brackets e.g. <code>[row_id, ]</code>. For example:</p>
-<pre class="{r}"><code>## Extract the first row
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Extract the first row
 
-cats[1, ]
+cats[<span class="dv">1</span>, ]</code></pre></div>
+<pre><code>##     coat weight likes_string
+## 1 calico    2.1         TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Extract the second column
 
-## Extract the second column
+cats[ , <span class="dv">2</span>]</code></pre></div>
+<pre><code>## [1] 2.1 5.0 3.2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Extract the value for the second row in the third column
 
-cats[ , 2]
-
-## Extract the value for the second row in the third column
-
-cats[2, 3]</code></pre>
+cats[<span class="dv">2</span>, <span class="dv">3</span>]</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
 <p>To highlight the difference vectors and lists, lets try and add a new row of data to the <code>cats</code> data frame.</p>
-<pre class="{r}"><code>garfield &lt;- c(&quot;marmalade&quot;, 20, FALSE)
-garfield</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">garfield &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;marmalade&quot;</span>, <span class="dv">20</span>, <span class="ot">FALSE</span>)
+garfield</code></pre></div>
+<pre><code>## [1] &quot;marmalade&quot; &quot;20&quot;        &quot;FALSE&quot;</code></pre>
 <p>If we create the new row as a vector then type coercion kicks in and we no longer have the data in the correct format! However, if we use a list:</p>
-<pre class="{r}"><code>garfield &lt;- list(&quot;marmalade&quot;, 20, FALSE)
-garfield</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">garfield &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;marmalade&quot;</span>, <span class="dv">20</span>, <span class="ot">FALSE</span>)
+garfield</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;marmalade&quot;
+## 
+## [[2]]
+## [1] 20
+## 
+## [[3]]
+## [1] FALSE</code></pre>
 <p>To add a new row to a data frame we can use the <code>rbind()</code> (row bind) function.</p>
-<pre class="{r}"><code>cats2 &lt;- rbind(cats, garfield)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cats2 &lt;-<span class="st"> </span><span class="kw">rbind</span>(cats, garfield)</code></pre></div>
+<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, ri, value = &quot;marmalade&quot;): invalid factor
+## level, NA generated</code></pre>
 <p>But now why didn’t this work?</p>
 <hr class="single">
 </div>
 <div id="factors" class="section level2">
 <h2><span class="header-section-number">7.6</span> Factors</h2>
 <p>Another important data structure is called a <strong>factor</strong>. Factors usually <em>look</em> like character data but are <em>stored</em> as integers with a look-up table. They are important for representing categorical information for statistical analysis. Lets take a closer look at the <code>coat</code> column using <code>str()</code>:</p>
-<p><code>{r echo=FALSE} cats &lt;- read.csv(&quot;data/feline.csv&quot;)</code></p>
-<pre class="{r}"><code>str(cats$coat)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(cats<span class="op">$</span>coat)</code></pre></div>
+<pre><code>##  Factor w/ 3 levels &quot;black&quot;,&quot;calico&quot;,..: 2 1 3</code></pre>
 <p>Factors make use of a look-up table to convert the numbers back to characters. In this case every <code>1</code> refers to <code>&quot;calico&quot;</code>. This means that you can’t add new data that doesn’t match the existing factor levels because <code>R</code> doesn’t understand how to handle to data. It only knows what values correspond to 1,2, and 3. <code>&quot;marmalade&quot;</code> could be anything else! To get passed this we need to tell <code>R</code> that we want an extra factor level called <code>&quot;marmalade&quot;</code>, and we do this with the <code>levels()</code> command.</p>
-<pre class="{r}"><code># Existing levels
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Existing levels</span>
 
-levels(cats$coat)
+<span class="kw">levels</span>(cats<span class="op">$</span>coat)</code></pre></div>
+<pre><code>## [1] &quot;black&quot;  &quot;calico&quot; &quot;tabby&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Lets add a new level</span>
 
-# Lets add a new level
+<span class="kw">levels</span>(cats<span class="op">$</span>coat) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">levels</span>(cats<span class="op">$</span>coat), <span class="st">&quot;marmalade&quot;</span>)
 
-levels(cats$coat) &lt;- c(levels(cats$coat), &quot;marmalade&quot;)
+<span class="co"># Now lets see the new levels</span>
 
-# Now lets see the new levels
-
-levels(cats$coat)</code></pre>
+<span class="kw">levels</span>(cats<span class="op">$</span>coat)</code></pre></div>
+<pre><code>## [1] &quot;black&quot;     &quot;calico&quot;    &quot;tabby&quot;     &quot;marmalade&quot;</code></pre>
 <p>While factors are essential for statistical modelling they can’t be a nuisance in other instances. <code>R</code> will load all character data as factors by default, but we can tell it not to.</p>
-<pre class="{r}"><code>####################
-### Challenge 11 ###
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">####################
+### Challenge 11 <span class="al">###</span>
 ####################
 
-# Look thorugh the help file for the read.csv() command to find an argument to stop character data from being loaded as factors. Hint: Characters are sometimes referred to as strings.
+<span class="co"># Look thorugh the help file for the read.csv() command to find an argument to stop character data from being loaded as factors. Hint: Characters are sometimes referred to as strings.</span>
 
-# Reload the cats data frame from file without factors
+<span class="co"># Reload the cats data frame from file without factors</span>
 
-# Add the new row of Garfield data to the data frame</code></pre>
+<span class="co"># Add the new row of Garfield data to the data frame</span></code></pre></div>
 <hr class="single">
-<pre class="{r}"><code>####################
-### Challenge 12 ###
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">####################
+### Challenge 12 <span class="al">###</span>
 ####################
 
-# Create a list of length two containing a character vector for each of the sections in this part of the workshop:
+<span class="co"># Create a list of length two containing a character vector for each of the sections in this part of the workshop:</span>
 
-# - Data types
-# - Data structures
+<span class="co"># - Data types</span>
+<span class="co"># - Data structures</span>
 
-# Populate each character vector with the names of the data types and data structures we&#39;ve seen so far.</code></pre>
+<span class="co"># Populate each character vector with the names of the data types and data structures we&#39;ve seen so far.</span></code></pre></div>
 
 </div>
 </div>
@@ -417,17 +525,7 @@ levels(cats$coat)</code></pre>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"google": false,
-"linkedin": false,
-"weibo": false,
-"instapper": false,
-"vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
-},
+"sharing": null,
 "fontsettings": {
 "theme": "white",
 "family": "sans",

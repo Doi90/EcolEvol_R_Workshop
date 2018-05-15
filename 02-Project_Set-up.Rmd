@@ -28,7 +28,7 @@ An example directory structure (for a `MyProject` root directory) might include 
 +  An `output` folder to store any type of intermediate or output files. This could include model objects, simulations, etc. Some people prefer to store their cleaned data here instead of in a sub-directory of `data`
 + A `scripts` folder to store the code scripts used in the analysis
 
-```{r}
+```{r Challenge_1}
 ###################
 ### Challenge 1 ###
 ###################
@@ -49,7 +49,7 @@ R builds on the "one folder, one project" mentality with the creation of `R Proj
 
 You can either start an `R Project` from scratch by creating a new directory, or add `R Project` functionality to an existing directory. You can create an `R Project` from either the `File` menu in the top left of the screen, or from the `Project` menu in the top right.
 
-```{r}
+```{r Challenge_2}
 ###################
 ### Challenge 2 ###
 ###################
@@ -86,7 +86,7 @@ Another thing that makes reading a code script easier is the use of a style guid
 +  A line length of <80 characters. This is more of a rule of thumb not hard and fast, but the idea is to keep from having to scroll across to read a full command
 +  Whitespace. `R` will ignore all whitespace in your code except for between a function name and it's opening parenthesis i.e. `mean (1,2)`, and inside object names. Make use of it to make the code readable (e.g. on either side of an operator `1 + 2`) but don't add it in unnecessarily.
 +  Multi-line function calls. `R` recognises that a function call is not finished if the line ends in a comma, so you can add each argument in a function to a new line to make it fit on a page. E.g.
-```{r eval=FALSE}
+```{r sum, eval=FALSE}
 sum(1:100,
     na.rm = TRUE)
 ```

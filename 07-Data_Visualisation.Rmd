@@ -1,6 +1,6 @@
 # Data Visualisation
 
-```{r, include=FALSE}
+```{r titanic01, include=FALSE}
 # Silently load in the data so the rest of the lesson works
 titanic_clean <- na.omit(read.csv("https://goo.gl/4Gqsnz", header=TRUE))
 ```
@@ -11,13 +11,13 @@ Once you've completed your data analysis you're going to need to summarise it in
 
 While you can create plots through various, including base `R`, the most popular method of producing fancy figures is with the `ggplot2` package. First things first, if you haven't done so yet, we need to install the `ggplot2` package:
 
-```{r eval=FALSE}
+```{r titanic02, eval=FALSE}
 install.packages("ggplot2")
 ```
 
 And load the package:
 
-```{r}
+```{r titanic03}
 library(ggplot2)
 ```
 
@@ -35,7 +35,7 @@ To start with we need to create the base layer for our plot. This is done with t
 
 Time for an example:
 
-```{r}
+```{r titanic04}
 ggplot(data = titanic_clean,
        aes(x = Age,
            y = Fare))
@@ -45,7 +45,7 @@ Here we have said that `titanic_clean` is our **data** component, and to use `Ag
 
 Now lets build onto this base layer by adding **geoms** to represent our data! `ggplot2` employs a really nice syntax where you can add subsequent layers using the `+` operator. This lets `R` know that the plot isn't finished yet and to add the new layer on top. In this case, we want to represent our data as a scatterplot so we use the `geom_point()` function.
 
-```{r}
+```{r titanic05}
 ggplot(data = titanic_clean,
        aes(x = Age,
            y = Fare)) +
@@ -54,7 +54,7 @@ ggplot(data = titanic_clean,
 
 This plot isn't really telling us much! There are potentially confounding variables in play. What if we want to see the effect of another variable on the `Fare` ~ `Age` relationship? We can tell `R` to colour our points based on a third variable by setting the `col` argument in our global `aes()` call. Lets see what effect passenger class has:
 
-```{r warning = FALSE}
+```{r titanic06, warning = FALSE}
 ggplot(data = titanic_clean,
        aes(x = Age,
            y = Fare,
@@ -70,7 +70,7 @@ Now we can start to tease apart some trends from the data.
 
 Instead of a scatterplot We could also make a line plot. This time we will use `geom_line()` instead of `geom_point()`.
 
-```{r warning = FALSE}
+```{r titanic07, warning = FALSE}
 ggplot(data = titanic_clean,
        aes(x = Age,
            y = Fare,
@@ -80,7 +80,7 @@ ggplot(data = titanic_clean,
 
 But what if we want to visualise both lines and points on the plot? We can simply add another layer to the plot:
 
-```{r warning = FALSE}
+```{r titanic08, warning = FALSE}
 ggplot(data = titanic_clean,
        aes(x = Age,
            y = Fare,
@@ -91,7 +91,7 @@ ggplot(data = titanic_clean,
 
 It's important to note that each layer is drawn on top of the previous layer. In this example, the lines have been drawn *on top of* the points. Here's a demonstration:
 
-```{r warning = FALSE}
+```{r titanic09, warning = FALSE}
 ggplot(data = titanic_clean,
        aes(x = Age,
            y = Fare,
@@ -100,7 +100,7 @@ ggplot(data = titanic_clean,
   geom_line()
 ```
 
-```{r}
+```{r Challenge_17}
 ####################
 ### Challenge 17 ###
 ####################
@@ -112,7 +112,7 @@ ggplot(data = titanic_clean,
 
 `ggplot2` also makes it easy to overlay statistical models over the data. To demonstrate we'll go back to our first example:
 
-```{r warning = FALSE}
+```{r titanic10, warning = FALSE}
 ggplot(data = titanic_clean,
        aes(x = Age,
            y = Fare,
@@ -122,7 +122,7 @@ ggplot(data = titanic_clean,
 
 We can fit a simple relationship to the data by adding another layer using `geom_smooth()`. We need to specify the `method` for modelling the relationship so lets use `lm` for a linear model.
 
-```{r warning = FALSE}
+```{r titanic11, warning = FALSE}
 ggplot(data = titanic_clean,
        aes(x = Age,
            y = Fare,
@@ -133,7 +133,7 @@ ggplot(data = titanic_clean,
 
 Now we have plotted some linear models and their confidence intervals to show the relationships between `Fare` and `Age` for each `Pclass`, but it is hard to tell second and third class apart. To better view these relationships we can transform the y-axis to make it clearer. `ggplot2` has a variety of scaling functions that can be implemented, but in this case we want to log scale the y axis:
 
-```{r warning = FALSE}
+```{r titanic12, warning = FALSE}
 ggplot(data = titanic_clean,
        aes(x = Age,
            y = Fare,
@@ -145,7 +145,7 @@ ggplot(data = titanic_clean,
 
 Now we're at the point where we have a layer of the graph whose aesthetic characteristics are partially independent of the other layers: `geom_smooth()`. It has inherited the *global options* set by `aes()` in the `ggplot()` layer, but we can also change *local options* that only apply to the aesthetics of this layer. Depending on the layer in question these *local options* may be controlled with another `aes()` function and/or just with arguments to the function. 
 
-```{r}
+```{r Challenge_18}
 ####################
 ### Challenge 18 ###
 ####################
@@ -169,7 +169,7 @@ So far we have visualised the relationships between variables in a single plot. 
 
 This time lets look at the relationship `Sex` and `Survived` as a bar plot using `geom_bar()` (the `position = dodge` argument means have them side by side not stacked). First as a single plot:
 
-```{r warning = FALSE}
+```{r titanic13, warning = FALSE}
 ggplot(data = titanic_clean,
        aes(x = Sex,
            fill = as.factor(Survived))) +
@@ -178,7 +178,7 @@ ggplot(data = titanic_clean,
 
 And now facetted by passenger class:
 
-```{r warning = FALSE}
+```{r titanic14, warning = FALSE}
 ggplot(data = titanic_clean,
        aes(x = Sex,
            fill = as.factor(Survived))) +
@@ -192,7 +192,7 @@ Once the broad layout of your figure is settled on you can start to customise th
 
 First, lets take a look at themes. Themes are a quick and easy way to make some big stylistic changes to a figure, and they just require adding on of `ggplot2`'s `theme_*()` layers.
 
-```{r warning = FALSE}
+```{r titanic15, warning = FALSE}
 ggplot(data = titanic_clean,
        aes(x = Sex,
            fill = as.factor(Survived))) +
@@ -203,7 +203,7 @@ ggplot(data = titanic_clean,
 
 Now lets add some more information (like units!) to our axis labels as well as a title. This involves a mix of the `xlab()`, `ylab()`, and `ggtitle()` functions.
 
-```{r warning = FALSE}
+```{r titanic16, warning = FALSE}
 ggplot(data = titanic_clean,
        aes(x = Sex,
            fill = as.factor(Survived))) +
@@ -217,7 +217,6 @@ ggplot(data = titanic_clean,
 
 Now lets clean up our facets so that they read "First class" etc instead of just the numeric data they are stored as. This requires the `labeller` argument and `labeller()` function inside our `facet_grid()` call:
 
-
 To clean this figure up for a publication we need to change some of the text
 elements. 
 
@@ -226,7 +225,7 @@ controls the axis text, and overall text size, and there are special layers
 for changing the axis labels. To change the legend title, we need to use the
 **scales** layer.
 
-```{r warning = FALSE}
+```{r titanic17, warning = FALSE}
 ggplot(data = titanic_clean,
        aes(x = Sex,
            fill = as.factor(Survived))) +
@@ -243,7 +242,7 @@ ggplot(data = titanic_clean,
 
 And now lets tidy up the legend. How this is done will depend on the type of data being plotted, but it will be one of the various `scale_*()` functions. In our case we use `scale_fill_discrete()` since we have discrete data where the colour is filled by this third variable. 
 
-```{r warning = FALSE}
+```{r titanic18, warning = FALSE}
 ggplot(data = titanic_clean,
        aes(x = Sex,
            fill = as.factor(Survived))) +
@@ -264,7 +263,7 @@ ggplot(data = titanic_clean,
 
 Once you have a finished plot you will want to save it to file from `R` so that you can embed it in your document of choice. The easiest option is to use the `ggsave()` function that by default saves the last plot from your `Plot` tab to file using the current size of the graphics device, but you can set your own `height`, `width`, and `units` arguments.
 
-```{r eval=FALSE}
+```{r  titanic19, eval=FALSE}
 ggsave("images/My_Plot.jpg")
 
 ggsave("images/My_Plot.jpg",
@@ -275,7 +274,7 @@ ggsave("images/My_Plot.jpg",
 
 An alternative is to use one of the variety of image file creation functions available in `R` like `png()`, `jpeg()`, or `pdf()`. These functions will open a new file of that specific type, add to it anything that you plot, and then needs to be specifically told to close and save the file using the `dev.off()` function. This is the ideal method of doing so since it gives you greater control over the file generation process, including the ability to save multiple plots to a single file (depending on file type chosen). Unless you have a **very** good reason why not to, always use the `pdf()` function here for plots since it saves as a vector graphic so it can be rescaled in the future without pixellation problems.
 
-```{r eval=FALSE}
+```{r titanic20, eval=FALSE}
 pdf("images/My_Plot.pdf",
     width = 10,
     height = 6)
@@ -300,7 +299,7 @@ dev.off()
 
 Alternatively if you have saved your plot in your environment as the variable `my_plot`:
 
-```{r eval=FALSE}
+```{r titanic21, eval=FALSE}
 pdf("images/My_Plot.pdf",
     width = 10,
     height = 6)
@@ -310,7 +309,7 @@ my_plot
 dev.off()
 ```
 
-```{r}
+```{r Challenge_19}
 ####################
 ### Challenge 19 ###
 ####################

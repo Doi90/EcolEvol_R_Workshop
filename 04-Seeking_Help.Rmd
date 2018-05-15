@@ -6,7 +6,7 @@
 
 `R`, and every package, provide help files for functions. To search for help on a specific function that is in a package loaded into your namespace (your interactive `R` session):
 
-```{r, eval=FALSE}
+```{r help1, eval=FALSE}
 ?function_name
 
 help(function_name)
@@ -34,7 +34,7 @@ Different functions might have different sections, but these are the main ones y
 
 To seek help on special operators, use quotes:
 
-```{r, eval=FALSE}
+```{r help2, eval=FALSE}
 ?"+"
 ```
 
@@ -53,7 +53,7 @@ If a package doesn't have any vignettes, you can usually find help by typing
 
 If you're not sure what package a function is in, or how it's specifically spelled you can do a fuzzy search:
 
-```{r, eval=FALSE}
+```{r help3, eval=FALSE}
 ??function_name
 ```
 
@@ -71,19 +71,19 @@ If you're having trouble using a function, 9 times out of 10, the answers you ar
 
 If you can't find the answer, there are a few useful functions to help you ask a question from your peers:
 
-```{r, eval=FALSE}
+```{r help4, eval=FALSE}
 ?dput
 ```
 
 Will dump the data you're working with into a format so that it can be copy and pasted by anyone else into their `R` session.
 
-```{r}
+```{r help5}
 sessionInfo()
 ```
 
 Will print out your current version of `R`, as well as any packages you have loaded. This can be useful for others to help reproduce and debug your issue.
 
-```{r}
+```{r Challenge_8}
 ###################
 ### Challenge 8 ###
 ###################

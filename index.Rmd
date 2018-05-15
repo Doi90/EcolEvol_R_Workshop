@@ -1,5 +1,5 @@
 ---
-title: "Ecology and Evolution PhD Program Beginner's R Workshop"
+title: "Ecology and Evolution PhD Program Beginner R Workshop"
 author: "David Wilkinson"
 date: "15/05/2018"
 output: bookdown::gitbook

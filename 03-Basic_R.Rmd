@@ -6,7 +6,7 @@
 
 The simplest thing you could do with `R` is do arithmetic:
 
-```{r}
+```{r calc01}
 1 + 2
 ```
 
@@ -25,19 +25,19 @@ From highest to lowest precedence:
 +  Add: `+`
 +  Subtract: `-`
 
-```{r}
+```{r calc02}
 3 + 5 * 2
 ```
 
 Use parentheses to group operations in order to force the order of evaluation if it differs from the default, or to make clear what you intend.
 
-```{r}
+```{r calc03}
 (3 + 5) * 2
 ```
 
 This can get unwieldy when not needed, but  clarifies your intentions. Remember that others may later read your code.
 
-```{r, eval=FALSE}
+```{r calc04, eval=FALSE}
 (3 + (5 * (2 ^ 2))) # hard to read
 3 + 5 * 2 ^ 2       # clear, if you remember the rules
 3 + 5 * (2 ^ 2)     # if you forget some rules, this might help
@@ -47,7 +47,7 @@ The text after each line of code is called a "comment". Anything that follows af
 
 Really small or large numbers get a scientific notation:
 
-```{r}
+```{r calc05}
 2/10000
 ```
 
@@ -55,7 +55,7 @@ Which is shorthand for "multiplied by `10^XX`". So `2e-4` is shorthand for `2 * 
 
 You can write numbers in scientific notation too:
 
-```{r}
+```{r calc06}
 5e3  # Note the lack of minus here
 ```
 
@@ -65,19 +65,19 @@ You can write numbers in scientific notation too:
 
 `R` has many built in mathematical functions. To call a function, we simply type its name, followed by  open and closing parentheses. Anything we type inside the parentheses is called the function's arguments:
 
-```{r}
+```{r calc07}
 sin(1)  # trigonometry functions
 ```
 
-```{r}
+```{r calc08}
 log(1)  # natural logarithm
 ```
 
-```{r}
+```{r calc09}
 log10(10) # base-10 logarithm
 ```
 
-```{r}
+```{r calc10}
 exp(0.5) # e^(1/2)
 ```
 
@@ -93,33 +93,33 @@ Typing a `?` before the name of a function will open the help page for that func
 
 We can also do comparison in `R`:
 
-```{r}
+```{r calc11}
 1 == 1  # equality (note two equals signs, read as "is equal to")
 ```
 
-```{r}
+```{r calc12}
 1 != 2  # inequality (read as "is not equal to")
 ```
 
-```{r}
+```{r calc13}
 1 <  2  # less than
 ```
 
-```{r}
+```{r calc14}
 1 <= 1  # less than or equal to
 ```
 
-```{r}
+```{r calc15}
 1 > 0  # greater than
 ```
 
-```{r}
+```{r calc16}
 1 >= -9 # greater than or equal to
 ```
 
 A word of warning about comparing numbers: you should never use `==` to compare two numbers unless they are integers (a data type which can specifically represent only whole numbers).
 
-Computers may only represent decimal numbers with a certain degree of precision, so two numbers which look the same when printed out by `R`, may actually have different underlying representations and therefore be different by a small margin of error (called Machine numeric tolerance).
+Computers may only repr esent decimal numbers with a certain degree of precision, so two numbers which look the same when printed out by `R`, may actually have different underlying representations and therefore be different by a small margin of error (called Machine numeric tolerance).
 
 Instead you should use the `all.equal()` function.
 
@@ -129,25 +129,25 @@ Instead you should use the `all.equal()` function.
 
 We can store values in variables using the assignment operator `<-`, like this:
 
-```{r}
+```{r calc17}
 x <- 1
 ```
 
 Notice that assignment does not print a value to the console. Instead, we stored it for later in something called a **variable**. `x` now contains the **value** `1`:
 
-```{r}
+```{r calc18}
 x
 ```
 
 Look for the `Environment` tab in one of the panes of `RStudio`, and you will see that `x` and its value have appeared. Our variable `x` can be used in place of a number in any calculation that expects a number:
 
-```{r}
+```{r calc19}
 log(x)
 ```
 
 Notice also that variables can be reassigned:
 
-```{r}
+```{r calc20}
 x <- 100
 ```
 
@@ -155,7 +155,7 @@ x <- 100
 
 Assignment values can contain the variable being assigned to:
 
-```{r}
+```{r calc21}
 x <- x + 1 # notice how RStudio updates its description of x on the top right tab
 ```
 
@@ -169,7 +169,7 @@ Variable names can contain letters, numbers, underscores and periods. They canno
 
 One final thing to be aware of is that `R` is *vectorised*, meaning that variables and functions can have vectors as values. For example:
 
-```{r}
+```{r calc22}
 1:5
 2^(1:5)
 x <- 1:5
@@ -184,19 +184,19 @@ There are a few useful commands you can use to interact with the `R` session.
 
 `ls()` will list all of the variables and functions stored in the global environment (your working R session):
 
-```{r}
+```{r calc23}
 ls()
 ```
 
 You can use `rm()` to delete objects you no longer need:
 
-```{r}
+```{r calc24}
 rm(x)
 ```
 
 If you have lots of things in your environment and want to delete all of them, you can pass the results of `ls()` to the `rm()` function:
 
-```{r}
+```{r calc25}
 rm(list = ls())
 ```
 
@@ -207,7 +207,7 @@ In this case we've specified that the results of `ls()` should be used for the `
 If instead we use `<-`, there will be unintended side effects, or you may just
 get an error message:
 
-```{r, error=TRUE}
+```{r calc26, error=TRUE}
 rm(list <- ls())
 ```
 
@@ -227,7 +227,7 @@ It is possible to add functions to `R` by writing a package, or by obtaining a p
 +  You can remove a package with `remove.packages("packagename")`
 +  You can make a package available for use with `library(packagename)`
 
-```{r}
+```{r Challenge_3}
 ###################
 ### Challenge 3 ###
 ###################
@@ -244,7 +244,7 @@ It is possible to add functions to `R` by writing a package, or by obtaining a p
 # celsius2kelvin
 ```
 
-```{r}
+```{r Challenge_4}
 ###################
 ### Challenge 4 ###
 ###################
@@ -257,7 +257,7 @@ It is possible to add functions to `R` by writing a package, or by obtaining a p
 # age <- age - 20
 ```
 
-```{r}
+```{r Challenge_5}
 ###################
 ### Challenge 5 ###
 ###################
@@ -265,7 +265,7 @@ It is possible to add functions to `R` by writing a package, or by obtaining a p
 # Run the code from the previous challenge, and write a command to compare mass to age. Is mass larger than age?
 ```
 
-```{r}
+```{r Challenge_6}
 ###################
 ### Challenge 6 ###
 ###################
@@ -273,7 +273,7 @@ It is possible to add functions to `R` by writing a package, or by obtaining a p
 # Clean up your working environment by deleting the mass and age variables.
 ```
 
-```{r}
+```{r Challenge_7}
 ###################
 ### Challenge 7 ###
 ###################

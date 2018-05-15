@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Ecology and Evolution PhD Program Beginner’s R Workshop</title>
-  <meta name="description" content="Ecology and Evolution PhD Program Beginner’s R Workshop">
+  <title>Ecology and Evolution PhD Program Beginner R Workshop</title>
+  <meta name="description" content="Ecology and Evolution PhD Program Beginner R Workshop">
   <meta name="generator" content="bookdown 0.7.10 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Ecology and Evolution PhD Program Beginner’s R Workshop" />
+  <meta property="og:title" content="Ecology and Evolution PhD Program Beginner R Workshop" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="Doi90/EcolEvol_R_Workshop" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Ecology and Evolution PhD Program Beginner’s R Workshop" />
+  <meta name="twitter:title" content="Ecology and Evolution PhD Program Beginner R Workshop" />
   
   
   
@@ -48,8 +48,45 @@
 
 
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
 
-<link rel="stylesheet" href="docs\lodestar.css" type="text/css" />
+<link rel="stylesheet" href="lodestar.css" type="text/css" />
 </head>
 
 <body>
@@ -138,7 +175,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ecology and Evolution PhD Program Beginner’s R Workshop</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ecology and Evolution PhD Program Beginner R Workshop</a>
           </h1>
         </div>
 
@@ -152,7 +189,8 @@
 <div id="using-r-as-a-calculator" class="section level2">
 <h2><span class="header-section-number">5.1</span> Using <code>R</code> as a calculator</h2>
 <p>The simplest thing you could do with <code>R</code> is do arithmetic:</p>
-<pre class="{r}"><code>1 + 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
 <p>If you type in an incomplete command, <code>R</code> will wait for you to complete it. If the symbol to the left of the bottom line in the console is <code>&gt;</code> then <code>R</code> is ready to accept a new command, while a <code>+</code> means it is waiting for you to finsh the previous command.</p>
 <p>If you want to cancel a command you can simply hit <code>Esc</code> and RStudio will give you back the “&gt;” prompt (or <code>Ctrl+C</code> for a Mac). This is a useful tip to remember if you ever get stuck in a <code>+</code> loop in the console!</p>
 <p>When using <code>R</code> as a calculator, the order of operations is the same as you would have learnt back in school.</p>
@@ -165,26 +203,36 @@
 <li>Add: <code>+</code></li>
 <li>Subtract: <code>-</code></li>
 </ul>
-<pre class="{r}"><code>3 + 5 * 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 13</code></pre>
 <p>Use parentheses to group operations in order to force the order of evaluation if it differs from the default, or to make clear what you intend.</p>
-<pre class="{r}"><code>(3 + 5) * 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span>) <span class="op">*</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 16</code></pre>
 <p>This can get unwieldy when not needed, but clarifies your intentions. Remember that others may later read your code.</p>
-<p><code>{r, eval=FALSE} (3 + (5 * (2 ^ 2))) # hard to read 3 + 5 * 2 ^ 2       # clear, if you remember the rules 3 + 5 * (2 ^ 2)     # if you forget some rules, this might help</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="dv">3</span> <span class="op">+</span><span class="st"> </span>(<span class="dv">5</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">^</span><span class="st"> </span><span class="dv">2</span>))) <span class="co"># hard to read</span>
+<span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span> <span class="op">^</span><span class="st"> </span><span class="dv">2</span>       <span class="co"># clear, if you remember the rules</span>
+<span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">^</span><span class="st"> </span><span class="dv">2</span>)     <span class="co"># if you forget some rules, this might help</span></code></pre></div>
 <p>The text after each line of code is called a “comment”. Anything that follows after the hash (or octothorpe) symbol <code>#</code> is ignored by <code>R</code> when it executes code.</p>
 <p>Really small or large numbers get a scientific notation:</p>
-<pre class="{r}"><code>2/10000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">/</span><span class="dv">10000</span></code></pre></div>
+<pre><code>## [1] 2e-04</code></pre>
 <p>Which is shorthand for “multiplied by <code>10^XX</code>”. So <code>2e-4</code> is shorthand for <code>2 * 10^(-4)</code>.</p>
 <p>You can write numbers in scientific notation too:</p>
-<pre class="{r}"><code>5e3  # Note the lack of minus here</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="fl">5e3</span>  <span class="co"># Note the lack of minus here</span></code></pre></div>
+<pre><code>## [1] 5000</code></pre>
 <hr class="small">
 </div>
 <div id="mathematical-functions" class="section level2">
 <h2><span class="header-section-number">5.2</span> Mathematical functions</h2>
 <p><code>R</code> has many built in mathematical functions. To call a function, we simply type its name, followed by open and closing parentheses. Anything we type inside the parentheses is called the function’s arguments:</p>
-<pre class="{r}"><code>sin(1)  # trigonometry functions</code></pre>
-<pre class="{r}"><code>log(1)  # natural logarithm</code></pre>
-<pre class="{r}"><code>log10(10) # base-10 logarithm</code></pre>
-<pre class="{r}"><code>exp(0.5) # e^(1/2)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sin</span>(<span class="dv">1</span>)  <span class="co"># trigonometry functions</span></code></pre></div>
+<pre><code>## [1] 0.841471</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log</span>(<span class="dv">1</span>)  <span class="co"># natural logarithm</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log10</span>(<span class="dv">10</span>) <span class="co"># base-10 logarithm</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">exp</span>(<span class="fl">0.5</span>) <span class="co"># e^(1/2)</span></code></pre></div>
+<pre><code>## [1] 1.648721</code></pre>
 <p>Don’t worry about trying to remember every function in <code>R</code>. You can simply look them up on google, or if you can remember the start of the function’s name, use the tab completion in <code>RStudio</code>.</p>
 <p>This is one advantage that <code>RStudio</code> has over <code>R</code> on its own, it has autocompletion abilities that allow you to more easily look up functions, their arguments, and the values that they take.</p>
 <p>Typing a <code>?</code> before the name of a function will open the help page for that function. As well as providing a detailed description of the function and how it works, scrolling to the bottom of the help page will usually show a collection of code examples which illustrate how to use it. We’ll go through an example later.</p>
@@ -193,30 +241,38 @@
 <div id="comparing-things" class="section level2">
 <h2><span class="header-section-number">5.3</span> Comparing things</h2>
 <p>We can also do comparison in <code>R</code>:</p>
-<pre class="{r}"><code>1 == 1  # equality (note two equals signs, read as &quot;is equal to&quot;)</code></pre>
-<pre class="{r}"><code>1 != 2  # inequality (read as &quot;is not equal to&quot;)</code></pre>
-<pre class="{r}"><code>1 &lt;  2  # less than</code></pre>
-<pre class="{r}"><code>1 &lt;= 1  # less than or equal to</code></pre>
-<pre class="{r}"><code>1 &gt; 0  # greater than</code></pre>
-<pre class="{r}"><code>1 &gt;= -9 # greater than or equal to</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>  <span class="co"># equality (note two equals signs, read as &quot;is equal to&quot;)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">!=</span><span class="st"> </span><span class="dv">2</span>  <span class="co"># inequality (read as &quot;is not equal to&quot;)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">&lt;</span><span class="st">  </span><span class="dv">2</span>  <span class="co"># less than</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">&lt;=</span><span class="st"> </span><span class="dv">1</span>  <span class="co"># less than or equal to</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>  <span class="co"># greater than</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">&gt;=</span><span class="st"> </span><span class="op">-</span><span class="dv">9</span> <span class="co"># greater than or equal to</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
 <p>A word of warning about comparing numbers: you should never use <code>==</code> to compare two numbers unless they are integers (a data type which can specifically represent only whole numbers).</p>
-<p>Computers may only represent decimal numbers with a certain degree of precision, so two numbers which look the same when printed out by <code>R</code>, may actually have different underlying representations and therefore be different by a small margin of error (called Machine numeric tolerance).</p>
+<p>Computers may only repr esent decimal numbers with a certain degree of precision, so two numbers which look the same when printed out by <code>R</code>, may actually have different underlying representations and therefore be different by a small margin of error (called Machine numeric tolerance).</p>
 <p>Instead you should use the <code>all.equal()</code> function.</p>
 <hr class="small">
 </div>
 <div id="variables-and-assignment" class="section level2">
 <h2><span class="header-section-number">5.4</span> Variables and assignment</h2>
 <p>We can store values in variables using the assignment operator <code>&lt;-</code>, like this:</p>
-<pre class="{r}"><code>x &lt;- 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span></code></pre></div>
 <p>Notice that assignment does not print a value to the console. Instead, we stored it for later in something called a <strong>variable</strong>. <code>x</code> now contains the <strong>value</strong> <code>1</code>:</p>
-<pre class="{r}"><code>x</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x</code></pre></div>
+<pre><code>## [1] 1</code></pre>
 <p>Look for the <code>Environment</code> tab in one of the panes of <code>RStudio</code>, and you will see that <code>x</code> and its value have appeared. Our variable <code>x</code> can be used in place of a number in any calculation that expects a number:</p>
-<pre class="{r}"><code>log(x)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log</span>(x)</code></pre></div>
+<pre><code>## [1] 0</code></pre>
 <p>Notice also that variables can be reassigned:</p>
-<pre class="{r}"><code>x &lt;- 100</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">100</span></code></pre></div>
 <p><code>x</code> used to contain the value 1 and and now it has the value 100.</p>
 <p>Assignment values can contain the variable being assigned to:</p>
-<pre class="{r}"><code>x &lt;- x + 1 # notice how RStudio updates its description of x on the top right tab</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span>x <span class="op">+</span><span class="st"> </span><span class="dv">1</span> <span class="co"># notice how RStudio updates its description of x on the top right tab</span></code></pre></div>
 <p>The right hand side of the assignment can be any valid <code>R</code> expression. The right hand side is <em>fully evaluated</em> before the assignment occurs.</p>
 <p>Variable names can contain letters, numbers, underscores and periods. They cannot start with a number nor contain spaces at all.</p>
 <hr class="small">
@@ -224,25 +280,32 @@
 <div id="vectorisation" class="section level2">
 <h2><span class="header-section-number">5.5</span> Vectorisation</h2>
 <p>One final thing to be aware of is that <code>R</code> is <em>vectorised</em>, meaning that variables and functions can have vectors as values. For example:</p>
-<pre class="{r}"><code>1:5
-2^(1:5)
-x &lt;- 1:5
-2^x</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">^</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</code></pre></div>
+<pre><code>## [1]  2  4  8 16 32</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>
+<span class="dv">2</span><span class="op">^</span>x</code></pre></div>
+<pre><code>## [1]  2  4  8 16 32</code></pre>
 <hr class="small">
 </div>
 <div id="managing-your-environment" class="section level2">
 <h2><span class="header-section-number">5.6</span> Managing your environment</h2>
 <p>There are a few useful commands you can use to interact with the <code>R</code> session.</p>
 <p><code>ls()</code> will list all of the variables and functions stored in the global environment (your working R session):</p>
-<pre class="{r}"><code>ls()</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()</code></pre></div>
+<pre><code>##  [1] &quot;ab_vector&quot;      &quot;another_list&quot;   &quot;concat_example&quot; &quot;list_example&quot;  
+##  [5] &quot;my_vec&quot;         &quot;name_vec&quot;       &quot;vec1&quot;           &quot;vec2&quot;          
+##  [9] &quot;vec3&quot;           &quot;x&quot;</code></pre>
 <p>You can use <code>rm()</code> to delete objects you no longer need:</p>
-<pre class="{r}"><code>rm(x)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(x)</code></pre></div>
 <p>If you have lots of things in your environment and want to delete all of them, you can pass the results of <code>ls()</code> to the <code>rm()</code> function:</p>
-<pre class="{r}"><code>rm(list = ls())</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</code></pre></div>
 <p>In this case we’ve combined the two. Just like the order of operations, anything inside the innermost parentheses is evaluated first, and so on.</p>
 <p>In this case we’ve specified that the results of <code>ls()</code> should be used for the <code>list</code> argument in <code>rm()</code>. When assigning values to arguments by name, you use the <code>=</code> operator!!</p>
 <p>If instead we use <code>&lt;-</code>, there will be unintended side effects, or you may just get an error message:</p>
-<p><code>{r, error=TRUE} rm(list &lt;- ls())</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(list &lt;-<span class="st"> </span><span class="kw">ls</span>())</code></pre></div>
+<pre><code>## Error in rm(list &lt;- ls()): ... must contain names or character strings</code></pre>
 <p>Pay attention when <code>R</code> does something unexpected! Errors, like above, are thrown when R cannot proceed with a calculation. Warnings on the other hand usually mean that the function has run, but it probably hasn’t worked as expected.</p>
 <p>In both cases, the message that <code>R</code> prints out usually give you clues how to fix a problem.</p>
 <hr class="small">
@@ -257,45 +320,45 @@ x &lt;- 1:5
 <li>You can remove a package with <code>remove.packages(&quot;packagename&quot;)</code></li>
 <li>You can make a package available for use with <code>library(packagename)</code></li>
 </ul>
-<pre class="{r}"><code>###################
-### Challenge 3 ###
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">###################
+### Challenge 3 <span class="al">###</span>
 ###################
 
-# Which of the following are valid variable names?
+<span class="co"># Which of the following are valid variable names?</span>
 
-# min_height
-# max.height
-# _age
-# .mass
-# MaxLength
-# min-length
-# 2widths
-# celsius2kelvin</code></pre>
-<pre class="{r}"><code>###################
-### Challenge 4 ###
+<span class="co"># min_height</span>
+<span class="co"># max.height</span>
+<span class="co"># _age</span>
+<span class="co"># .mass</span>
+<span class="co"># MaxLength</span>
+<span class="co"># min-length</span>
+<span class="co"># 2widths</span>
+<span class="co"># celsius2kelvin</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">###################
+### Challenge 4 <span class="al">###</span>
 ###################
 
-# What will be the value of each  variable  after each statement in the following program?
+<span class="co"># What will be the value of each  variable  after each statement in the following program?</span>
 
-# mass &lt;- 47.5
-# age &lt;- 122
-# mass &lt;- mass * 2.3
-# age &lt;- age - 20</code></pre>
-<pre class="{r}"><code>###################
-### Challenge 5 ###
+<span class="co"># mass &lt;- 47.5</span>
+<span class="co"># age &lt;- 122</span>
+<span class="co"># mass &lt;- mass * 2.3</span>
+<span class="co"># age &lt;- age - 20</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">###################
+### Challenge 5 <span class="al">###</span>
 ###################
 
-# Run the code from the previous challenge, and write a command to compare mass to age. Is mass larger than age?</code></pre>
-<pre class="{r}"><code>###################
-### Challenge 6 ###
+<span class="co"># Run the code from the previous challenge, and write a command to compare mass to age. Is mass larger than age?</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">###################
+### Challenge 6 <span class="al">###</span>
 ###################
 
-# Clean up your working environment by deleting the mass and age variables.</code></pre>
-<pre class="{r}"><code>###################
-### Challenge 7 ###
+<span class="co"># Clean up your working environment by deleting the mass and age variables.</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">###################
+### Challenge 7 <span class="al">###</span>
 ###################
 
-# Install the following package: `ggplot2`</code></pre>
+<span class="co"># Install the following package: `ggplot2`</span></code></pre></div>
 
 </div>
 </div>
@@ -318,17 +381,7 @@ x &lt;- 1:5
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"google": false,
-"linkedin": false,
-"weibo": false,
-"instapper": false,
-"vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
-},
+"sharing": null,
 "fontsettings": {
 "theme": "white",
 "family": "sans",

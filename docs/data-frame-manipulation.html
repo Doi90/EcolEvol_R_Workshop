@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Ecology and Evolution PhD Program Beginner’s R Workshop</title>
-  <meta name="description" content="Ecology and Evolution PhD Program Beginner’s R Workshop">
+  <title>Ecology and Evolution PhD Program Beginner R Workshop</title>
+  <meta name="description" content="Ecology and Evolution PhD Program Beginner R Workshop">
   <meta name="generator" content="bookdown 0.7.10 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Ecology and Evolution PhD Program Beginner’s R Workshop" />
+  <meta property="og:title" content="Ecology and Evolution PhD Program Beginner R Workshop" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="Doi90/EcolEvol_R_Workshop" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Ecology and Evolution PhD Program Beginner’s R Workshop" />
+  <meta name="twitter:title" content="Ecology and Evolution PhD Program Beginner R Workshop" />
   
   
   
@@ -48,8 +48,45 @@
 
 
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
 
-<link rel="stylesheet" href="docs\lodestar.css" type="text/css" />
+<link rel="stylesheet" href="lodestar.css" type="text/css" />
 </head>
 
 <body>
@@ -138,7 +175,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ecology and Evolution PhD Program Beginner’s R Workshop</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ecology and Evolution PhD Program Beginner R Workshop</a>
           </h1>
         </div>
 
@@ -153,27 +190,29 @@
 <p>Data frames are arguably the most common data structure you will work with in R for data analysis. We have previously covered some simple subsetting methods using <code>$</code> and <code>[ , ]</code> for extraction of specific elements, but what if we’re only after elements that meet a set criteria? Trees above a certain height, species from a limited subset of taxa, only data points with no missing values?</p>
 <p>These are all types of logical subsetting. <code>R</code> generates a vector of <code>TRUE</code> and <code>FALSE</code> values based on your set criteria and only returns that elements of your data frame that correspond to <code>TRUE</code> values.</p>
 <p>For this section of the course we will be using a dataset about the passengers on the titanic. It is found online and you can download it with the following code:</p>
-<pre class="{r}"><code>titanic &lt;- read.csv(&quot;https://goo.gl/4Gqsnz&quot;, header=TRUE)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">titanic &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;https://goo.gl/4Gqsnz&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>)</code></pre></div>
 </div>
 <div id="data-cleaning" class="section level2">
 <h2><span class="header-section-number">8.2</span> Data Cleaning</h2>
 <p>One of the first steps of analysing a dataset is cleaning it up. As far as subsetting goes, it is often important to remove incomplete rows of data. Some times a particular observation is missing a measurement of a variable and this can cause issues:</p>
-<pre class="{r}"><code>## Calculate the average age of passengers on the Titanic
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Calculate the average age of passengers on the Titanic
 
-mean(titanic$Age)
+<span class="kw">mean</span>(titanic<span class="op">$</span>Age)</code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Check for missing values
 
-## Check for missing values
-
-anyNA(titanic$Age)</code></pre>
+<span class="kw">anyNA</span>(titanic<span class="op">$</span>Age)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
 <p>Here, we can’t calculate the average age of passengers on the titanic because we don’t know the age of some passengers. Several summary statistic functions in <code>R</code> have a <code>na.rm</code> argument that lets you ignore <code>NA</code> values when performing the calculation:</p>
-<pre class="{r}"><code>mean(titanic$Age, na.rm = TRUE)
-
-mean(titanic$Survived, na.rm = TRUE)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(titanic<span class="op">$</span>Age, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] 29.69912</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(titanic<span class="op">$</span>Survived, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] 0.3838384</code></pre>
 <p>But the two values above can’t be fairly used in conjunction with each other. Why is that?</p>
 <p>Well it turns out that while we don’t know the age of some of the passengers, we do know if each of them survived. This means we are summarising values from different data sets: the survival rate of <em>all</em> passengers, and the mean age of passengers <em>with known ages</em>. Unless the missing values have an identical distribution to the known values their absence will change the mean value. What if all of the unknowns are children? What if they are all &gt;50?</p>
 <p>This may seem somewhat trivial here, but if you are performing more elaborate statistical analyses like fitting linear models then it is crucial to ensure your datasets are identical. Models fit to two different datasets cannot be directly compared with model evaluation statistics like AIC, R<sup>2</sup>, AUC, etc. You can usually supply datasets with <code>NA</code>s to model fitting functoins in <code>R</code> but they will automatically drop rows with missing values <strong>for covariates included in the model only</strong>. This means that two models fit to the same data frame with different covariate combinations can actually be fit to different datasets and no longer comparable for model selection.</p>
 <p>They key to avoiding this pitfall is to remove all <code>NA</code> values in advance. Conveniently, <code>R</code> makes this easy with the <code>na.omit()</code> function. Lets create a new data frame that is a version of <code>titanic</code> without missing values:</p>
-<pre class="{r}"><code>titanic_clean &lt;- na.omit(titanic)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">titanic_clean &lt;-<span class="st"> </span><span class="kw">na.omit</span>(titanic)</code></pre></div>
 </div>
 <div id="logical-subsetting" class="section level2">
 <h2><span class="header-section-number">8.3</span> Logical Subsetting</h2>
@@ -187,15 +226,16 @@ mean(titanic$Survived, na.rm = TRUE)</code></pre>
 <li>Only observations for specific gene locus</li>
 </ul>
 <p>This is achieved by suppling a logical test in place of a particular index inside the <code>[ , ]</code> notation. This is going to be the subsetting of rows by values in a single column, so we put our logical test on the left of the <code>,</code> in <code>[ , ]</code>. Lets say we only want to keep the passengers who paid less than ten pounds for their ticket:</p>
-<pre class="{r}"><code>titanic_cheap &lt;- titanic_clean[titanic_clean$Fare &lt; 10, ]
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">titanic_cheap &lt;-<span class="st"> </span>titanic_clean[titanic_clean<span class="op">$</span>Fare <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>, ]
 
-dim(titanic_cheap)</code></pre>
+<span class="kw">dim</span>(titanic_cheap)</code></pre></div>
+<pre><code>## [1] 236  12</code></pre>
 <p>Here we have kept only the rows where the <code>Fare</code> column was &lt; 10, and kept all columns (by leaving the column section blank). This reduced our dataset to a subset of only 236 passengers.</p>
-<pre class="{r}"><code>####################
-### Challenge 13 ###
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">####################
+### Challenge 13 <span class="al">###</span>
 ####################
 
-# Create a new data frame called titanic_35 that includes only the passengers aged 35 or under.</code></pre>
+<span class="co"># Create a new data frame called titanic_35 that includes only the passengers aged 35 or under.</span></code></pre></div>
 </div>
 <div id="multiple-criteria" class="section level3">
 <h3><span class="header-section-number">8.3.2</span> Multiple Criteria</h3>
@@ -212,27 +252,28 @@ dim(titanic_cheap)</code></pre>
 </ul>
 <p>You may sometimes see <code>&amp;&amp;</code> and <code>||</code> instead of <code>&amp;</code> and <code>|</code>. These operators only look at the first element of each vector and ignore the remaining elements. These operators are mainly used in programming, rather than data analysis and you can comfortably ignore them.</p>
 <p>We supply multiple criteria tests to the <code>[ , ]</code> notation in this format: <code>&lt;logical test&gt; &amp;/| &lt;logical test&gt;</code>. For example, lets keep only the passengers that were in first class and paid more than two hundred pounds for their ticket:</p>
-<pre class="{r}"><code>titanic_rich &lt;- titanic_clean[titanic_clean$Pclass == 1 &amp; titanic_clean$Fare &gt; 200, ]
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">titanic_rich &lt;-<span class="st"> </span>titanic_clean[titanic_clean<span class="op">$</span>Pclass <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>titanic_clean<span class="op">$</span>Fare <span class="op">&gt;</span><span class="st"> </span><span class="dv">200</span>, ]
 
-dim(titanic_rich)</code></pre>
+<span class="kw">dim</span>(titanic_rich)</code></pre></div>
+<pre><code>## [1] 18 12</code></pre>
 <p>Only eighteen pasengers!</p>
-<pre class="{r}"><code>####################
-### Challenge 14 ###
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">####################
+### Challenge 14 <span class="al">###</span>
 ####################
 
-# Create a new data frame that includes only the passengers aged &lt; 18 or &gt;= 50.</code></pre>
-<pre class="{r}"><code>####################
-### Challenge 15 ###
+<span class="co"># Create a new data frame that includes only the passengers aged &lt; 18 or &gt;= 50.</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">####################
+### Challenge 15 <span class="al">###</span>
 ####################
 
-# Create a new data frame that includes only female, third class passengers.</code></pre>
-<pre class="{r}"><code>####################
-### Challenge 16 ###
+<span class="co"># Create a new data frame that includes only female, third class passengers.</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">####################
+### Challenge 16 <span class="al">###</span>
 ####################
 
-# Create a new data frame that includes only male passengers aged either 18, 23, 31, or 46.
+<span class="co"># Create a new data frame that includes only male passengers aged either 18, 23, 31, or 46.</span>
 
-# Hint: Rememberthe %in% operator!</code></pre>
+<span class="co"># Hint: Rememberthe %in% operator!</span></code></pre></div>
 
 </div>
 </div>
@@ -256,17 +297,7 @@ dim(titanic_rich)</code></pre>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"google": false,
-"linkedin": false,
-"weibo": false,
-"instapper": false,
-"vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
-},
+"sharing": null,
 "fontsettings": {
 "theme": "white",
 "family": "sans",

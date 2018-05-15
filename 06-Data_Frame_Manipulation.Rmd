@@ -8,7 +8,7 @@ These are all types of logical subsetting. `R` generates a vector of `TRUE` and 
 
 For this section of the course we will be using a dataset about the passengers on the titanic. It is found online and you can download it with the following code:
 
-```{r}
+```{r manip01}
 titanic <- read.csv("https://goo.gl/4Gqsnz", header=TRUE)
 ```
 
@@ -16,7 +16,7 @@ titanic <- read.csv("https://goo.gl/4Gqsnz", header=TRUE)
 
 One of the first steps of analysing a dataset is cleaning it up. As far as subsetting goes, it is often important to remove incomplete rows of data. Some times a particular observation is missing a measurement of a variable and this can cause issues:
 
-```{r}
+```{r manip02}
 ## Calculate the average age of passengers on the Titanic
 
 mean(titanic$Age)
@@ -28,7 +28,7 @@ anyNA(titanic$Age)
 
 Here, we can't calculate the average age of passengers on the titanic because we don't know the age of some passengers. Several summary statistic functions in `R` have a `na.rm` argument that lets you ignore `NA` values when performing the calculation:
 
-```{r}
+```{r manip03}
 mean(titanic$Age, na.rm = TRUE)
 
 mean(titanic$Survived, na.rm = TRUE)
@@ -42,7 +42,7 @@ This may seem somewhat trivial here, but if you are performing more elaborate st
 
 They key to avoiding this pitfall is to remove all `NA` values in advance. Conveniently, `R` makes this easy with the `na.omit()` function. Lets create a new data frame that is a version of `titanic` without missing values:
 
-```{r}
+```{r manip04}
 titanic_clean <- na.omit(titanic)
 ```
 
@@ -59,7 +59,7 @@ You will often want to subset your data frame such that you only keep values tha
 
 This is achieved by suppling a logical test in place of a particular index inside the `[ , ]` notation. This is going to be the subsetting of rows by values in a single column, so we put our logical test on the left of the `,` in `[ , ]`. Lets say we only want to keep the passengers who paid less than ten pounds for their ticket:
 
-```{r}
+```{r manip05}
 titanic_cheap <- titanic_clean[titanic_clean$Fare < 10, ]
 
 dim(titanic_cheap)
@@ -67,7 +67,7 @@ dim(titanic_cheap)
 
 Here we have kept only the rows where the `Fare` column was < 10, and kept all columns (by leaving the column section blank). This reduced our dataset to a subset of only 236 passengers.
 
-```{r}
+```{r Challenge_13}
 ####################
 ### Challenge 13 ###
 ####################
@@ -92,7 +92,7 @@ You may sometimes see `&&` and `||` instead of `&` and `|`. These operators only
 
 We supply multiple criteria tests to the `[ , ]` notation in this format: `<logical test> &/| <logical test>`. For example, lets keep only the passengers that were in first class and paid more than two hundred pounds for their ticket:
 
-```{r}
+```{r manip06}
 titanic_rich <- titanic_clean[titanic_clean$Pclass == 1 & titanic_clean$Fare > 200, ]
 
 dim(titanic_rich)
@@ -100,7 +100,7 @@ dim(titanic_rich)
 
 Only eighteen pasengers!
 
-```{r}
+```{r Challenge_14}
 ####################
 ### Challenge 14 ###
 ####################
@@ -108,7 +108,7 @@ Only eighteen pasengers!
 # Create a new data frame that includes only the passengers aged < 18 or >= 50.
 ```
 
-```{r}
+```{r Challenge_15}
 ####################
 ### Challenge 15 ###
 ####################
@@ -116,7 +116,7 @@ Only eighteen pasengers!
 # Create a new data frame that includes only female, third class passengers.
 ```
 
-```{r}
+```{r Challenge_16}
 ####################
 ### Challenge 16 ###
 ####################

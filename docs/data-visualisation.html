@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Ecology and Evolution PhD Program Beginner’s R Workshop</title>
-  <meta name="description" content="Ecology and Evolution PhD Program Beginner’s R Workshop">
+  <title>Ecology and Evolution PhD Program Beginner R Workshop</title>
+  <meta name="description" content="Ecology and Evolution PhD Program Beginner R Workshop">
   <meta name="generator" content="bookdown 0.7.10 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Ecology and Evolution PhD Program Beginner’s R Workshop" />
+  <meta property="og:title" content="Ecology and Evolution PhD Program Beginner R Workshop" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="Doi90/EcolEvol_R_Workshop" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Ecology and Evolution PhD Program Beginner’s R Workshop" />
+  <meta name="twitter:title" content="Ecology and Evolution PhD Program Beginner R Workshop" />
   
   
   
@@ -48,8 +48,45 @@
 
 
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
 
-<link rel="stylesheet" href="docs\lodestar.css" type="text/css" />
+<link rel="stylesheet" href="lodestar.css" type="text/css" />
 </head>
 
 <body>
@@ -138,7 +175,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ecology and Evolution PhD Program Beginner’s R Workshop</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ecology and Evolution PhD Program Beginner R Workshop</a>
           </h1>
         </div>
 
@@ -148,14 +185,13 @@
             <section class="normal" id="section-">
 <div id="data-visualisation" class="section level1">
 <h1><span class="header-section-number">9</span> Data Visualisation</h1>
-<p><code>{r, include=FALSE} # Silently load in the data so the rest of the lesson works titanic_clean &lt;- na.omit(read.csv(&quot;https://goo.gl/4Gqsnz&quot;, header=TRUE))</code></p>
 <div id="creating-publication-quality-graphics" class="section level2">
 <h2><span class="header-section-number">9.1</span> Creating publication quality graphics</h2>
 <p>Once you’ve completed your data analysis you’re going to need to summarise it in some really nice figures for publication and/or presentations. This is where <code>R</code> can really shine in comparison to something like Excel.</p>
 <p>While you can create plots through various, including base <code>R</code>, the most popular method of producing fancy figures is with the <code>ggplot2</code> package. First things first, if you haven’t done so yet, we need to install the <code>ggplot2</code> package:</p>
-<p><code>{r eval=FALSE} install.packages(&quot;ggplot2&quot;)</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</code></pre></div>
 <p>And load the package:</p>
-<pre class="{r}"><code>library(ggplot2)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre></div>
 </div>
 <div id="grammar-of-graphics" class="section level2">
 <h2><span class="header-section-number">9.2</span> Grammar of Graphics</h2>
@@ -168,114 +204,231 @@
 <p>The key to understanding <code>ggplot2</code> is thinking about a figure in layers.</p>
 <p>To start with we need to create the base layer for our plot. This is done with the <code>ggplot()</code> function, and it is here we define are <strong>data</strong> and <strong>coordinate system</strong> components. We set our <strong>data</strong> compnent using the <code>data</code> argument, and then use the aesthetic function <code>aes()</code> as a second argument to define our <strong>coordinate system</strong>. The <code>aes()</code> function can potentially be used multiple times when constructing our figure, so it is important to know that anything defined inside the base <code>ggplot()</code> function is a <em>global options</em> inherited by all subsequent layers.</p>
 <p>Time for an example:</p>
-<pre class="{r}"><code>ggplot(data = titanic_clean,
-       aes(x = Age,
-           y = Fare))</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> titanic_clean,
+       <span class="kw">aes</span>(<span class="dt">x =</span> Age,
+           <span class="dt">y =</span> Fare))</code></pre></div>
+<p><img src="Ecology_and_Evolution_PhD_Program_Beginners_R_Workshop_files/figure-html/titanic04-1.png" width="672" /></p>
 <p>Here we have said that <code>titanic_clean</code> is our <strong>data</strong> component, and to use <code>Age</code> on the x-axis and <code>Fare</code> on the y-axis for our <strong>coordinate system</strong>.</p>
 <p>Now lets build onto this base layer by adding <strong>geoms</strong> to represent our data! <code>ggplot2</code> employs a really nice syntax where you can add subsequent layers using the <code>+</code> operator. This lets <code>R</code> know that the plot isn’t finished yet and to add the new layer on top. In this case, we want to represent our data as a scatterplot so we use the <code>geom_point()</code> function.</p>
-<pre class="{r}"><code>ggplot(data = titanic_clean,
-       aes(x = Age,
-           y = Fare)) +
-  geom_point()</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> titanic_clean,
+       <span class="kw">aes</span>(<span class="dt">x =</span> Age,
+           <span class="dt">y =</span> Fare)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="Ecology_and_Evolution_PhD_Program_Beginners_R_Workshop_files/figure-html/titanic05-1.png" width="672" /></p>
 <p>This plot isn’t really telling us much! There are potentially confounding variables in play. What if we want to see the effect of another variable on the <code>Fare</code> ~ <code>Age</code> relationship? We can tell <code>R</code> to colour our points based on a third variable by setting the <code>col</code> argument in our global <code>aes()</code> call. Lets see what effect passenger class has:</p>
-<p><code>{r warning = FALSE} ggplot(data = titanic_clean,        aes(x = Age,            y = Fare,            col = as.factor(Pclass))) +   geom_point()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> titanic_clean,
+       <span class="kw">aes</span>(<span class="dt">x =</span> Age,
+           <span class="dt">y =</span> Fare,
+           <span class="dt">col =</span> <span class="kw">as.factor</span>(Pclass))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="Ecology_and_Evolution_PhD_Program_Beginners_R_Workshop_files/figure-html/titanic06-1.png" width="672" /></p>
 <p>We have used the <code>as.factor()</code> function on <code>Pclass</code> to ensure it is considered a discrete variable and not continuous for the colour scheme.</p>
 <p>Now we can start to tease apart some trends from the data.</p>
 </div>
 <div id="layers" class="section level2">
 <h2><span class="header-section-number">9.3</span> Layers</h2>
 <p>Instead of a scatterplot We could also make a line plot. This time we will use <code>geom_line()</code> instead of <code>geom_point()</code>.</p>
-<p><code>{r warning = FALSE} ggplot(data = titanic_clean,        aes(x = Age,            y = Fare,            col = as.factor(Pclass))) +   geom_line()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> titanic_clean,
+       <span class="kw">aes</span>(<span class="dt">x =</span> Age,
+           <span class="dt">y =</span> Fare,
+           <span class="dt">col =</span> <span class="kw">as.factor</span>(Pclass))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
+<p><img src="Ecology_and_Evolution_PhD_Program_Beginners_R_Workshop_files/figure-html/titanic07-1.png" width="672" /></p>
 <p>But what if we want to visualise both lines and points on the plot? We can simply add another layer to the plot:</p>
-<p><code>{r warning = FALSE} ggplot(data = titanic_clean,        aes(x = Age,            y = Fare,            col = as.factor(Pclass))) +   geom_point() +   geom_line()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> titanic_clean,
+       <span class="kw">aes</span>(<span class="dt">x =</span> Age,
+           <span class="dt">y =</span> Fare,
+           <span class="dt">col =</span> <span class="kw">as.factor</span>(Pclass))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
+<p><img src="Ecology_and_Evolution_PhD_Program_Beginners_R_Workshop_files/figure-html/titanic08-1.png" width="672" /></p>
 <p>It’s important to note that each layer is drawn on top of the previous layer. In this example, the lines have been drawn <em>on top of</em> the points. Here’s a demonstration:</p>
-<p><code>{r warning = FALSE} ggplot(data = titanic_clean,        aes(x = Age,            y = Fare,            col = as.factor(Pclass))) +   geom_point(col=&quot;black&quot;) +   geom_line()</code></p>
-<pre class="{r}"><code>####################
-### Challenge 17 ###
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> titanic_clean,
+       <span class="kw">aes</span>(<span class="dt">x =</span> Age,
+           <span class="dt">y =</span> Fare,
+           <span class="dt">col =</span> <span class="kw">as.factor</span>(Pclass))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">col=</span><span class="st">&quot;black&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
+<p><img src="Ecology_and_Evolution_PhD_Program_Beginners_R_Workshop_files/figure-html/titanic09-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">####################
+### Challenge 17 <span class="al">###</span>
 ####################
 
-# Switch the order of the point and line layers from the previous example. What happened?</code></pre>
+<span class="co"># Switch the order of the point and line layers from the previous example. What happened?</span></code></pre></div>
 </div>
 <div id="transformations-and-statistics" class="section level2">
 <h2><span class="header-section-number">9.4</span> Transformations and statistics</h2>
 <p><code>ggplot2</code> also makes it easy to overlay statistical models over the data. To demonstrate we’ll go back to our first example:</p>
-<p><code>{r warning = FALSE} ggplot(data = titanic_clean,        aes(x = Age,            y = Fare,            col = as.factor(Pclass))) +   geom_point()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> titanic_clean,
+       <span class="kw">aes</span>(<span class="dt">x =</span> Age,
+           <span class="dt">y =</span> Fare,
+           <span class="dt">col =</span> <span class="kw">as.factor</span>(Pclass))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="Ecology_and_Evolution_PhD_Program_Beginners_R_Workshop_files/figure-html/titanic10-1.png" width="672" /></p>
 <p>We can fit a simple relationship to the data by adding another layer using <code>geom_smooth()</code>. We need to specify the <code>method</code> for modelling the relationship so lets use <code>lm</code> for a linear model.</p>
-<p><code>{r warning = FALSE} ggplot(data = titanic_clean,        aes(x = Age,            y = Fare,            col = as.factor(Pclass))) +   geom_point() +   geom_smooth(method = &quot;lm&quot;)</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> titanic_clean,
+       <span class="kw">aes</span>(<span class="dt">x =</span> Age,
+           <span class="dt">y =</span> Fare,
+           <span class="dt">col =</span> <span class="kw">as.factor</span>(Pclass))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre></div>
+<p><img src="Ecology_and_Evolution_PhD_Program_Beginners_R_Workshop_files/figure-html/titanic11-1.png" width="672" /></p>
 <p>Now we have plotted some linear models and their confidence intervals to show the relationships between <code>Fare</code> and <code>Age</code> for each <code>Pclass</code>, but it is hard to tell second and third class apart. To better view these relationships we can transform the y-axis to make it clearer. <code>ggplot2</code> has a variety of scaling functions that can be implemented, but in this case we want to log scale the y axis:</p>
-<p><code>{r warning = FALSE} ggplot(data = titanic_clean,        aes(x = Age,            y = Fare,            col = as.factor(Pclass))) +   geom_point() +   geom_smooth(method = &quot;lm&quot;) +   scale_y_log10()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> titanic_clean,
+       <span class="kw">aes</span>(<span class="dt">x =</span> Age,
+           <span class="dt">y =</span> Fare,
+           <span class="dt">col =</span> <span class="kw">as.factor</span>(Pclass))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_y_log10</span>()</code></pre></div>
+<p><img src="Ecology_and_Evolution_PhD_Program_Beginners_R_Workshop_files/figure-html/titanic12-1.png" width="672" /></p>
 <p>Now we’re at the point where we have a layer of the graph whose aesthetic characteristics are partially independent of the other layers: <code>geom_smooth()</code>. It has inherited the <em>global options</em> set by <code>aes()</code> in the <code>ggplot()</code> layer, but we can also change <em>local options</em> that only apply to the aesthetics of this layer. Depending on the layer in question these <em>local options</em> may be controlled with another <code>aes()</code> function and/or just with arguments to the function.</p>
-<pre class="{r}"><code>####################
-### Challenge 18 ###
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">####################
+### Challenge 18 <span class="al">###</span>
 ####################
 
-# Using the following base code:
+<span class="co"># Using the following base code:</span>
 
-# ggplot(data = titanic_clean,
-#        aes(x = Age,
-#            y = Fare,
-#            col = as.factor(Pclass))) +
-#   geom_point() +
-#   geom_smooth(method = &quot;lm&quot;) +
-#   scale_y_log10()
+<span class="co"># ggplot(data = titanic_clean,</span>
+<span class="co">#        aes(x = Age,</span>
+<span class="co">#            y = Fare,</span>
+<span class="co">#            col = as.factor(Pclass))) +</span>
+<span class="co">#   geom_point() +</span>
+<span class="co">#   geom_smooth(method = &quot;lm&quot;) +</span>
+<span class="co">#   scale_y_log10()</span>
 
-# Experiment with the additional options you can use to customise the `geom_oint()` and `geom_smooth()` layer. There is no set challenge, just experiment with different options. Consider changing the point/line size, transparency, linetype, etc.</code></pre>
+<span class="co"># Experiment with the additional options you can use to customise the `geom_oint()` and `geom_smooth()` layer. There is no set challenge, just experiment with different options. Consider changing the point/line size, transparency, linetype, etc.</span></code></pre></div>
 </div>
 <div id="multi-panel-figures" class="section level2">
 <h2><span class="header-section-number">9.5</span> Multi-panel figures</h2>
 <p>So far we have visualised the relationships between variables in a single plot. Alternatively, we can split out different groups in the data into multiple panels by adding a layer of <strong>facet</strong> panels. The <code>facet_grid()</code> and <code>facet_wrap()</code> layers do this wit slightly different amounts of control, but for now we can stick with <code>facet_grid()</code>. We need to specify which variable we want to split the plots by by supplying it as a formula like <code>~variable_name</code>.</p>
 <p>This time lets look at the relationship <code>Sex</code> and <code>Survived</code> as a bar plot using <code>geom_bar()</code> (the <code>position = dodge</code> argument means have them side by side not stacked). First as a single plot:</p>
-<p><code>{r warning = FALSE} ggplot(data = titanic_clean,        aes(x = Sex,            fill = as.factor(Survived))) +   geom_bar(position = &quot;dodge&quot;)</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> titanic_clean,
+       <span class="kw">aes</span>(<span class="dt">x =</span> Sex,
+           <span class="dt">fill =</span> <span class="kw">as.factor</span>(Survived))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</code></pre></div>
+<p><img src="Ecology_and_Evolution_PhD_Program_Beginners_R_Workshop_files/figure-html/titanic13-1.png" width="672" /></p>
 <p>And now facetted by passenger class:</p>
-<p><code>{r warning = FALSE} ggplot(data = titanic_clean,        aes(x = Sex,            fill = as.factor(Survived))) +   geom_bar(position = &quot;dodge&quot;) +   facet_grid(~ Pclass)</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> titanic_clean,
+       <span class="kw">aes</span>(<span class="dt">x =</span> Sex,
+           <span class="dt">fill =</span> <span class="kw">as.factor</span>(Survived))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_grid</span>(<span class="op">~</span><span class="st"> </span>Pclass)</code></pre></div>
+<p><img src="Ecology_and_Evolution_PhD_Program_Beginners_R_Workshop_files/figure-html/titanic14-1.png" width="672" /></p>
 </div>
 <div id="further-customisation" class="section level2">
 <h2><span class="header-section-number">9.6</span> Further Customisation</h2>
 <p>Once the broad layout of your figure is settled on you can start to customise the more minor details of the figure to get it ready for publication. This includes things like changing labels, adding titles, fixing up the legend, adding themes and so on.</p>
 <p>First, lets take a look at themes. Themes are a quick and easy way to make some big stylistic changes to a figure, and they just require adding on of <code>ggplot2</code>’s <code>theme_*()</code> layers.</p>
-<p><code>{r warning = FALSE} ggplot(data = titanic_clean,        aes(x = Sex,            fill = as.factor(Survived))) +   geom_bar(position = &quot;dodge&quot;) +   facet_grid(~ Pclass) +   theme_bw()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> titanic_clean,
+       <span class="kw">aes</span>(<span class="dt">x =</span> Sex,
+           <span class="dt">fill =</span> <span class="kw">as.factor</span>(Survived))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_grid</span>(<span class="op">~</span><span class="st"> </span>Pclass) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
+<p><img src="Ecology_and_Evolution_PhD_Program_Beginners_R_Workshop_files/figure-html/titanic15-1.png" width="672" /></p>
 <p>Now lets add some more information (like units!) to our axis labels as well as a title. This involves a mix of the <code>xlab()</code>, <code>ylab()</code>, and <code>ggtitle()</code> functions.</p>
-<p><code>{r warning = FALSE} ggplot(data = titanic_clean,        aes(x = Sex,            fill = as.factor(Survived))) +   geom_bar(position = &quot;dodge&quot;) +   facet_grid(~ Pclass) +   theme_bw() +   xlab(&quot;Passenger age (in years)&quot;) +   ylab(&quot;Number of passengers survived&quot;) +   ggtitle(&quot;Titanic passenger survival rates&quot;)</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> titanic_clean,
+       <span class="kw">aes</span>(<span class="dt">x =</span> Sex,
+           <span class="dt">fill =</span> <span class="kw">as.factor</span>(Survived))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_grid</span>(<span class="op">~</span><span class="st"> </span>Pclass) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Passenger age (in years)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Number of passengers survived&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Titanic passenger survival rates&quot;</span>)</code></pre></div>
+<p><img src="Ecology_and_Evolution_PhD_Program_Beginners_R_Workshop_files/figure-html/titanic16-1.png" width="672" /></p>
 <p>Now lets clean up our facets so that they read “First class” etc instead of just the numeric data they are stored as. This requires the <code>labeller</code> argument and <code>labeller()</code> function inside our <code>facet_grid()</code> call:</p>
 <p>To clean this figure up for a publication we need to change some of the text elements.</p>
 <p>We can do this by adding a couple of different layers. The <strong>theme</strong> layer controls the axis text, and overall text size, and there are special layers for changing the axis labels. To change the legend title, we need to use the <strong>scales</strong> layer.</p>
-<p><code>{r warning = FALSE} ggplot(data = titanic_clean,        aes(x = Sex,            fill = as.factor(Survived))) +   geom_bar(position = &quot;dodge&quot;) +   facet_grid(~ Pclass,              labeller = labeller(Pclass = c(`1` = &quot;First Class&quot;,                                                        `2` = &quot;Second Class&quot;,                                                        `3` = &quot;Third Class&quot;))) +   theme_bw() +   xlab(&quot;Passenger age (in years)&quot;) +   ylab(&quot;Number of passengers survived&quot;) +   ggtitle(&quot;Titanic passenger survival rates&quot;)</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> titanic_clean,
+       <span class="kw">aes</span>(<span class="dt">x =</span> Sex,
+           <span class="dt">fill =</span> <span class="kw">as.factor</span>(Survived))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_grid</span>(<span class="op">~</span><span class="st"> </span>Pclass,
+             <span class="dt">labeller =</span> <span class="kw">labeller</span>(<span class="dt">Pclass =</span> <span class="kw">c</span>(<span class="st">`</span><span class="dt">1</span><span class="st">`</span> =<span class="st"> &quot;First Class&quot;</span>, 
+                                                      <span class="st">`</span><span class="dt">2</span><span class="st">`</span> =<span class="st"> &quot;Second Class&quot;</span>, 
+                                                      <span class="st">`</span><span class="dt">3</span><span class="st">`</span> =<span class="st"> &quot;Third Class&quot;</span>))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Passenger age (in years)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Number of passengers survived&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Titanic passenger survival rates&quot;</span>)</code></pre></div>
+<p><img src="Ecology_and_Evolution_PhD_Program_Beginners_R_Workshop_files/figure-html/titanic17-1.png" width="672" /></p>
 <p>And now lets tidy up the legend. How this is done will depend on the type of data being plotted, but it will be one of the various <code>scale_*()</code> functions. In our case we use <code>scale_fill_discrete()</code> since we have discrete data where the colour is filled by this third variable.</p>
-<p><code>{r warning = FALSE} ggplot(data = titanic_clean,        aes(x = Sex,            fill = as.factor(Survived))) +   geom_bar(position = &quot;dodge&quot;) +   facet_grid(~ Pclass,              labeller = labeller(Pclass = c(`1` = &quot;First Class&quot;,                                                        `2` = &quot;Second Class&quot;,                                                        `3` = &quot;Third Class&quot;))) +   theme_bw() +   xlab(&quot;Passenger age (in years)&quot;) +   ylab(&quot;Number of passengers survived&quot;) +   ggtitle(&quot;Titanic passenger survival rates&quot;) +   scale_fill_discrete(name = &quot;Survival&quot;,                       label = c(&quot;Died&quot;, &quot;Survived&quot;))</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> titanic_clean,
+       <span class="kw">aes</span>(<span class="dt">x =</span> Sex,
+           <span class="dt">fill =</span> <span class="kw">as.factor</span>(Survived))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_grid</span>(<span class="op">~</span><span class="st"> </span>Pclass,
+             <span class="dt">labeller =</span> <span class="kw">labeller</span>(<span class="dt">Pclass =</span> <span class="kw">c</span>(<span class="st">`</span><span class="dt">1</span><span class="st">`</span> =<span class="st"> &quot;First Class&quot;</span>, 
+                                                      <span class="st">`</span><span class="dt">2</span><span class="st">`</span> =<span class="st"> &quot;Second Class&quot;</span>, 
+                                                      <span class="st">`</span><span class="dt">3</span><span class="st">`</span> =<span class="st"> &quot;Third Class&quot;</span>))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Passenger age (in years)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Number of passengers survived&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Titanic passenger survival rates&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;Survival&quot;</span>,
+                      <span class="dt">label =</span> <span class="kw">c</span>(<span class="st">&quot;Died&quot;</span>, <span class="st">&quot;Survived&quot;</span>))</code></pre></div>
+<p><img src="Ecology_and_Evolution_PhD_Program_Beginners_R_Workshop_files/figure-html/titanic18-1.png" width="672" /></p>
 </div>
 <div id="saving-plots" class="section level2">
 <h2><span class="header-section-number">9.7</span> Saving Plots</h2>
 <p>Once you have a finished plot you will want to save it to file from <code>R</code> so that you can embed it in your document of choice. The easiest option is to use the <code>ggsave()</code> function that by default saves the last plot from your <code>Plot</code> tab to file using the current size of the graphics device, but you can set your own <code>height</code>, <code>width</code>, and <code>units</code> arguments.</p>
-<p>```{r eval=FALSE} ggsave(“images/My_Plot.jpg”)</p>
-<p>ggsave(“images/My_Plot.jpg”, height = 10, width = 15, units = “cm”) ```</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;images/My_Plot.jpg&quot;</span>)
+
+<span class="kw">ggsave</span>(<span class="st">&quot;images/My_Plot.jpg&quot;</span>,
+       <span class="dt">height =</span> <span class="dv">10</span>,
+       <span class="dt">width =</span> <span class="dv">15</span>,
+       <span class="dt">units =</span> <span class="st">&quot;cm&quot;</span>)</code></pre></div>
 <p>An alternative is to use one of the variety of image file creation functions available in <code>R</code> like <code>png()</code>, <code>jpeg()</code>, or <code>pdf()</code>. These functions will open a new file of that specific type, add to it anything that you plot, and then needs to be specifically told to close and save the file using the <code>dev.off()</code> function. This is the ideal method of doing so since it gives you greater control over the file generation process, including the ability to save multiple plots to a single file (depending on file type chosen). Unless you have a <strong>very</strong> good reason why not to, always use the <code>pdf()</code> function here for plots since it saves as a vector graphic so it can be rescaled in the future without pixellation problems.</p>
-<p>```{r eval=FALSE} pdf(“images/My_Plot.pdf”, width = 10, height = 6)</p>
-<p>ggplot(data = titanic_clean, aes(x = Sex, fill = as.factor(Survived))) + geom_bar(position = “dodge”) + facet_grid(~ Pclass, labeller = labeller(Pclass = c(<code>1</code> = “First Class”, <code>2</code> = “Second Class”, <code>3</code> = “Third Class”))) + theme_bw() + xlab(“Passenger age (in years)”) + ylab(“Number of passengers survived”) + ggtitle(“Titanic passenger survival rates”) + scale_fill_discrete(name = “Survival”, label = c(“Died”, “Survived”))</p>
-<p>dev.off() ```</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pdf</span>(<span class="st">&quot;images/My_Plot.pdf&quot;</span>,
+    <span class="dt">width =</span> <span class="dv">10</span>,
+    <span class="dt">height =</span> <span class="dv">6</span>)
+
+<span class="kw">ggplot</span>(<span class="dt">data =</span> titanic_clean,
+       <span class="kw">aes</span>(<span class="dt">x =</span> Sex,
+           <span class="dt">fill =</span> <span class="kw">as.factor</span>(Survived))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_grid</span>(<span class="op">~</span><span class="st"> </span>Pclass,
+             <span class="dt">labeller =</span> <span class="kw">labeller</span>(<span class="dt">Pclass =</span> <span class="kw">c</span>(<span class="st">`</span><span class="dt">1</span><span class="st">`</span> =<span class="st"> &quot;First Class&quot;</span>, 
+                                                      <span class="st">`</span><span class="dt">2</span><span class="st">`</span> =<span class="st"> &quot;Second Class&quot;</span>, 
+                                                      <span class="st">`</span><span class="dt">3</span><span class="st">`</span> =<span class="st"> &quot;Third Class&quot;</span>))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Passenger age (in years)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Number of passengers survived&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Titanic passenger survival rates&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;Survival&quot;</span>,
+                      <span class="dt">label =</span> <span class="kw">c</span>(<span class="st">&quot;Died&quot;</span>, <span class="st">&quot;Survived&quot;</span>))
+
+<span class="kw">dev.off</span>()</code></pre></div>
 <p>Alternatively if you have saved your plot in your environment as the variable <code>my_plot</code>:</p>
-<p>```{r eval=FALSE} pdf(“images/My_Plot.pdf”, width = 10, height = 6)</p>
-<p>my_plot</p>
-<p>dev.off() ```</p>
-<pre class="{r}"><code>####################
-### Challenge 19 ###
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pdf</span>(<span class="st">&quot;images/My_Plot.pdf&quot;</span>,
+    <span class="dt">width =</span> <span class="dv">10</span>,
+    <span class="dt">height =</span> <span class="dv">6</span>)
+
+my_plot
+
+<span class="kw">dev.off</span>()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">####################
+### Challenge 19 <span class="al">###</span>
 ####################
 
-# This is the final challenge of the course and the ONLY assessed component.
-#
-# Plot the titanic_clean dataset in any way you wish. Customise the plot to your heart&#39;s content! If you&#39;re lacking inspiration try some of these:
-#
-# - Change the variables on the axis
-# - Change line/point widths/clours/transparency
-# - Change the title and axis labels
-# - Use a theme!
-# - Facet the data
-# - Change the colours!
-#
-# If you have ideas and don&#39;t know how to do it ask a helper!
-#
-# Save the plot to a pdf file in your images/ directory
-#
-# Show the plot in the file to a helper to get a tick next to your name on the assessment list. We don&#39;t care what it looks like as long as the pdf has a plot in it! Make it as pretty or ugly as you wish!</code></pre>
+<span class="co"># This is the final challenge of the course and the ONLY assessed component.</span>
+<span class="co">#</span>
+<span class="co"># Plot the titanic_clean dataset in any way you wish. Customise the plot to your heart&#39;s content! If you&#39;re lacking inspiration try some of these:</span>
+<span class="co">#</span>
+<span class="co"># - Change the variables on the axis</span>
+<span class="co"># - Change line/point widths/clours/transparency</span>
+<span class="co"># - Change the title and axis labels</span>
+<span class="co"># - Use a theme!</span>
+<span class="co"># - Facet the data</span>
+<span class="co"># - Change the colours!</span>
+<span class="co">#</span>
+<span class="co"># If you have ideas and don&#39;t know how to do it ask a helper!</span>
+<span class="co">#</span>
+<span class="co"># Save the plot to a pdf file in your images/ directory</span>
+<span class="co">#</span>
+<span class="co"># Show the plot in the file to a helper to get a tick next to your name on the assessment list. We don&#39;t care what it looks like as long as the pdf has a plot in it! Make it as pretty or ugly as you wish!</span></code></pre></div>
 
 </div>
 </div>
@@ -298,17 +451,7 @@
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"google": false,
-"linkedin": false,
-"weibo": false,
-"instapper": false,
-"vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
-},
+"sharing": null,
 "fontsettings": {
 "theme": "white",
 "family": "sans",
